@@ -44,7 +44,7 @@ Tags: cornel
 
 教师模拟，自我讲解。
 
-![学习方法]({attach}cornell_method.jpg)
+![学习方法](cornell_method.jpg)
 
 
 # 文学作用的笔记方法

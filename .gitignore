@@ -3,3 +3,4 @@ output
 *.pyc
 pelican-plugins/*
 pelican-themes/*
+srv.pid

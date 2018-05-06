@@ -7,7 +7,7 @@ SITENAME = u'Jamsa的笔记'
 SITEURL = ''
 
 PATH = 'content'
-STATIC_PATHS = ['devel','static']
+STATIC_PATHS = ['devel','static','math','images','others']
 
 TIMEZONE = 'Asia/Shanghai'
 
@@ -37,9 +37,27 @@ RELATIVE_URLS = True
 
 THEME = 'pelican-themes/pelican-fresh'
 
-PLUGIN_PATH = 'pelican-plugins'
+ORG_READER_EMACS_LOCATION = '/Users/zhujie/Applications/Emacs.app/Contents/MacOS/Emacs'
+ORG_READER_BACKEND = "'html"
+ORG_READER_EMACS_SETTINGS='org_reader_config.el'
 
-PLUGINS = [ "render_math"]#"pelican-toc"
+PLUGIN_PATHS = ['pelican-plugins']
+
+PLUGINS = [ "render_math","org_reader"]#"pelican-toc","org_pandoc_reader"
+
+
+
+ORG_PANDOC_ARGS = ['--mathjax',
+                   '--smart',
+                   #'--toc',
+                   #'--toc-depth=2',
+                   '--standalone',
+                   '--highlight-style=pygments',]
+
+
+# MATH_JAX = {
+#     'source':'https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js'
+#     }
 
 #pelican_toc插件配置
 TOC = {

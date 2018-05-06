@@ -1,0 +1,9 @@
+#+TITLE:首页
+#+OPTIONS: TOC:nil ;关闭目录
+#+OPTIONS: NUM:nil ;关闭标题前面的数字
+#+OPTIONS: AUTHOR:nil ;不显示作者
+#+OPTIONS: TIMESTAMP:nil ;不显示创建时间
+#+OPTIONS: html-postamble:nil ;不显示底部明细信息
+
+ * [[file:test.org][测试页]]
+ * [[file:hadoop_in_action/hadoop_in_action.org][Hadoop In Action]]

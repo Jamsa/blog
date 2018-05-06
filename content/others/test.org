@@ -1,0 +1,139 @@
+#+TITLE: Org测试页
+#+DATE: 2016-09-19
+#+CATEGORY: misc
+#+SETUPFILE: ~/.emacs.d/org-templates/level-0.org
+#+HTML_MATHJAX:  path:"//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+     
+* 第一章
+
+** 第一节
+
+ - 这是列表
+
+   1.速度
+
+ - dfsdf1 
+
+** 代码测试
+#+begin_src emacs-lisp :tangle yes
+(defun kaka ()
+(message "hello"))
+
+(add-hook 'org-mode-hook
+          '(lambda ()
+             (setq org-confirm-babel-evaluate nil)
+             ;(setq org-src-fontify-natively t)
+             ;(setq org-html-htmlize-output-type 'inline-css) 
+             (setq org-export-htmlize-output-type 'css)
+             (org-babel-do-load-languages
+              'org-babel-load-languages
+              '((dot . t)
+                (python . t)
+                (emacs-lisp . t)
+                (sh . t)))
+             ))
+
+
+#+end_src
+
+** 数学公式
+ \begin{equation}
+     x=\sqrt{b}
+     \end{equation}
+     
+     If $a^2=b$ and \( b=2 \), then the solution must be
+     either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+
+$$J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}(\theta^{T}X_{i} - Y_{i})^2$$
+
+
+** 第3条
+
+** 测试
+   1. 测试1
+   2. 测试2
+
+** 第四条aa
+   
+** dffdas
+
+** org babel graphviz
+#+BEGIN_SRC dot :file ./images/graphviz-example.png :exports results
+  digraph G {
+          subgraph cluster_0 {
+                  style=filled;
+                  color=lightgrey;
+                  node [style=filled,color=white];
+                  a0 -> a1 -> a2 -> a3;
+                  label = "process #1";
+          }
+
+          subgraph cluster_1 {
+                  node [style=filled];
+                  b0 -> b1 -> b2 -> b3;
+                  label = "process #2";
+                  color=blue
+          }
+          start -> a0;
+          start -> b0;
+          a1 -> b3;
+          b2 -> a3;
+          a3 -> a0;
+          a3 -> end;
+          b3 -> end;
+
+          start [shape=Mdiamond];
+          end [shape=Msquare];
+  }
+#+END_SRC
+
+#+RESULTS:
+[[./images/graphviz-example.png]]
+
+
+** org babel
+#+BEGIN_SRC emacs-lisp -n -r 
+(defun org-xor (a b)
+   "Exclusive or."
+   (if a (not b) b))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp -n -r :exports results
+(defun org-xor (a b)
+   "Exclusive or."
+   (if a (not b) b))
+(org-xor t nil)
+#+END_SRC
+
+#+RESULTS:
+: t
+
+
+ #+begin_src python :tangle yes
+class OrgReader(readers.BaseReader):
+    enabled = True
+
+    EMACS_ARGS = ["-Q", "--batch"]
+    ELISP_EXEC = "(org->pelican \"{0}\" {1})"
+
+    file_extensions = ['org']
+
+    def __init__(self, settings):
+        super(OrgReader, self).__init__(settings)
+        assert 'ORG_READER_EMACS_LOCATION' in self.settings, \
+            "No ORG_READER_EMACS_LOCATION specified in settings"
+
+    def read(self, filename):
+        LOG.info("Reading Org file {0}".format(filename))
+        cmd = [self.settings['ORG_READER_EMACS_LOCATION']]
+        cmd.extend(self.EMACS_ARGS)
+
+        if 'ORG_READER_EMACS_SETTINGS' in self.settings:
+            cmd.append('-l')
+            cmd.append(self.settings['ORG_READER_EMACS_SETTINGS'])
+
+        backend = self.settings.get('ORG_READER_BACKEND', "'html")
+
+        cmd.append('-l')
+        cmd.append(ELISP)
+ #+end_src
