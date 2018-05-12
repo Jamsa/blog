@@ -4,7 +4,8 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Jamsa'
 SITENAME = u'Jamsa的笔记'
-SITEURL = ''
+SITEURL = 'http://jamsa.github.io'
+DISQUS_SITENAME = 'jamsa-github-io'
 
 PATH = 'content'
 STATIC_PATHS = ['devel','static','images']

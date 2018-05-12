@@ -267,7 +267,7 @@ Android有一个轻量级的RPC机制——当调用的方法是本地调用，�
 一个RPC接口可以只包含方法。默认情况下，所有方法是同步执行的（本地方法被阻塞直到远程方法执行完成），即使没有返回值。
 
 工作机制如下：使用IDL（接口定义语言）申明你需要实现的RPC接口。使用aidl工具从那个申明中生成可以被本地和远程进程使用的Java接口定义。它包含两个内部类，如图：
-![]({attach}android-dev-guide/binder_rpc.png)
+![Binder RPC]({attach}android-dev-guide/binder_rpc.png)
 
 
 内部类的代码有管理远程调用你在IDL中申明的接口需要的所有代码。两个内部类都实现了IBinder接口。一个用于本地internally by the system；你编写的代码可以忽略它。另一个称为Stub，继承自Binder类。除了为有效进行RPC调用的代码，它还包含你申明的RPC接口中申明的方法。你应该在Stub的子类中实现这些方法，像上图标出的。
@@ -322,7 +322,7 @@ void onDestroy()
 
 下图描述了一个activity的在不同状态间转换的路径。彩色椭圆形的是activity的主要状态。方形的代表的是回调方法，你可以实现它在状态变更的时候执行一些操作。
 
-![]({attach}android-dev-guide/activity_lifecycle.png)
+![Activity Lifecycle]({attach}android-dev-guide/activity_lifecycle.png)
 
 
 下表描述了每个方法的细节和它在activity的整个生命周期中的位置：
@@ -393,7 +393,7 @@ onBind()回调被传入传递给bindService的intent对象，onUnbind()方法可
 
 下图描述了服务的回调方法。尽管，图中区分了startServicet()和bindService()创建的的服务，但是要记住任何服务，不论它是如何被启动的，都可以允许客户端bind到它，因此任何服务都可以接收onBind()和onUnbind()调用。
 
-![]({attach}android-dev-guide/binder_rpc.png)
+![Binder RPC]({attach}android-dev-guide/binder_rpc.png)
 
 ## 广播接收者生命周期
 Broadcast receiver有单个回调方法：
