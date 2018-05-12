@@ -1,7 +1,7 @@
 Title: Ext JS 5 手册 核心概念（三）组件
 Date: 2015-05-17
 Modified: 2015-05-17
-Category: devel
+Category: 前端
 Tags: javascript,extjs
 
 # Ext JS 5 手册 核心概念（三）组件
@@ -10,7 +10,7 @@ Tags: javascript,extjs
 Ext JS 应用中的 UI 是由一个或多个被称为`组件(Components)`的构件组成的。所有组件都是`Ext.Component`的子类，它能自动管理组件的生命周期，如：实例化、渲染、改变大小和位置、销毁。
 #### 组件的层级
 `Container`是一种特殊的能包含其它组件的组件。一个典型的应用是由一些树状嵌套的组件组成的，由`container`来负责管理组件和它们的子组件的生命周期，包括它们的：创建、渲染、改变大小和位置、销毁。一个典型应用的组件层级是由顶部的`Viewport`开始，它包含了其它`containers`和组件嵌套而成：
-![组件层级]({attach}component_heirarchy_5.png)
+![组件层级]({attach}extjs5_guide/component_heirarchy_5.png)
 子组件通过`Container`的`items`配置属性添加到`Container`中。
 
 `Containers`使用布局管理器来确定子组件的大小和位置。
@@ -64,7 +64,7 @@ Ext JS 使用模板方法模式将行为委派给子类，行为只对子类型�
 下面的图描述了`onRender`模板方法的运行机制。
 
 `Render`方法被调用时（通常由`Container`的布局管理器）。这个方法可能没有被覆盖，而是继承自`Ext.base`类。它调用当前的子类中实现的`this.onRender`（如果有）。这将调用父类型中的方法。最后，每个类中的功能都调用到了，控制权返回到render函数
-![模板方法调用机制]({attach}template_pattern.png)
+![模板方法调用机制]({attach}extjs5_guide/template_pattern.png)
 以下是一个`Component`的子类实现的`onRender`方法：
 ```javascript
 Ext.define('My.custom.Component', {

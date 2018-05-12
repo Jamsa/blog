@@ -1,7 +1,7 @@
 Title: JBoss Seam 学习笔记
 Date: 2009-01-15
 Modified: 2009-01-15
-Category: java
+Category: 开发
 Tags: seam,jsf
 
 #  JBoss Seam介绍

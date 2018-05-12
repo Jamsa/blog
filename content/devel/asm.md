@@ -1,7 +1,7 @@
 Title: 汇编语言（王爽）读书笔记
 Date: 2010-09-01
 Modified: 2010-09-01
-Category: devel
+Category: 开发
 Tags: asm
 
 # 基础知识

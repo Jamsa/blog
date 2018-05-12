@@ -1,7 +1,7 @@
 Title: gawk笔记
 Date: 2007-06-19
 Modified: 2007-06-19
-Category: devel
+Category: 效率
 Tags: awk,linux
 
 # I.简介

@@ -7,7 +7,7 @@ SITENAME = u'Jamsa的笔记'
 SITEURL = ''
 
 PATH = 'content'
-STATIC_PATHS = ['devel','static']
+STATIC_PATHS = ['devel','static','images']
 
 TIMEZONE = 'Asia/Shanghai'
 
@@ -26,7 +26,7 @@ AUTHOR_FEED_RSS = None
 #          ('Jinja2', 'http://jinja.pocoo.org/'),
 #          ('You can modify those links in your config file', '#'),)
 
-# Social widget
+# Social widgetp
 # SOCIAL = (('You can add links in your config file', '#'),
 #           ('Another social link', '#'),)
 
@@ -37,9 +37,9 @@ RELATIVE_URLS = True
 
 THEME = 'pelican-themes/pelican-fresh'
 
-PLUGIN_PATH = 'pelican-plugins'
+PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = [ "render_math"]#"pelican-toc"
+PLUGINS = [ "render_math","pelican-toc"]#
 
 #pelican_toc插件配置
 TOC = {

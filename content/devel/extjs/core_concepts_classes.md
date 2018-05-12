@@ -1,7 +1,7 @@
 Title: Ext JS 5 手册 核心概念（二）类型系统
 Date: 2015-05-17
 Modified: 2015-05-17
-Category: devel
+Category: 前端
 Tags: javascript,extjs
 
 # Ext JS 5 手册 核心概念（二）类型系统

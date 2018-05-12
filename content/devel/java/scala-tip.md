@@ -1,7 +1,7 @@
 Title: Programming in Scala 的读书笔记
 Date: 2010-12-27
 Modified: 2010-12-27
-Category: java
+Category: 开发
 Tags: scala
 
 # 语言基础

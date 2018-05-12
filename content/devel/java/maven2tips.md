@@ -1,7 +1,7 @@
 Title: Maven2 Tips
 Date: 2009-09-21
 Modified: 2009-09-21
-Category: java
+Category: 开发
 Tags: maven
 
 # mvn命令行

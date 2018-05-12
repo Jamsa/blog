@@ -1,7 +1,7 @@
 Title: Programming Perl笔记
 Date: 2007-12-02
 Modified: 2007-12-02
-Category: devel
+Category: 开发
 Tags: perl
 
 # OverView

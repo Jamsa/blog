@@ -1,7 +1,7 @@
 Title: Practical Common Lisp笔记
 Date: 2011-06-03
 Modified: 2011-06-03
-Category: devel
+Category: 开发
 Tags: lisp
 
 # 环境搭建

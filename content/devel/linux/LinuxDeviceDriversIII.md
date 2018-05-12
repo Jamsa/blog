@@ -1,7 +1,7 @@
 Title: Linux内核设备驱动第三版读书笔记
 Date: 2008-01-17
 Modified: 2008-01-17
-Category: devel
+Category: 开发
 Tags: linux
 
 # Chap 2 构建和运行内核

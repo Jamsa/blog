@@ -1,7 +1,7 @@
 Title: SICP读书笔记
 Date: 2010-08-31
 Modified: 2010-08-31
-Category: devel
+Category: 开发
 Tags: lisp,scheme
 
 # Chap.1 Building Abstractions with Procedures

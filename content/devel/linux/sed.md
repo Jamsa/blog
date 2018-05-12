@@ -1,7 +1,7 @@
 Title: Sed Tips
 Date: 2007-06-19
 Modified: 2007-06-19
-Category: devel
+Category: 效率
 Tags: linux,sed
 
 # I介绍

@@ -1,7 +1,7 @@
 Title: Ext JS 5 手册 应用程序架构（一）应用程序架构简介
 Date: 2015-05-17
 Modified: 2015-05-17
-Category: devel
+Category: 前端
 Tags: javascript,extjs
 
 # Ext JS 5 手册 应用程序架构（一）应用程序架构简介

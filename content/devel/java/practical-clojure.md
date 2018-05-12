@@ -1,7 +1,7 @@
 Title: Practical Clojure 记笔
 Date: 2012-03-12
 Modified: 2010-07-30
-Category: java
+Category: 开发
 Tags: clojure
 
 # 状态管理
