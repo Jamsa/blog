@@ -8,7 +8,7 @@ SITEURL = 'http://jamsa.github.io'
 DISQUS_SITENAME = 'jamsa-github-io'
 
 PATH = 'content'
-STATIC_PATHS = ['devel','static','images']
+STATIC_PATHS = ['devel','static','images','matplotlib_files']
 
 TIMEZONE = 'Asia/Shanghai'
 
