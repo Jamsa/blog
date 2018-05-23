@@ -1,8 +1,8 @@
-Title: Sklearn的基本使用(Jupyter Notebook)
+Title: Sklearn的基本使用
 Date: 2016-04-05
 Modified: 2016-04-05
 Category: 机器学习
-Tags: python,machine learn
+Tags: python,machine learn,jupyter notebook
 
 
 ```python
