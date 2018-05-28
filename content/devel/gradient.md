@@ -1,6 +1,6 @@
 Title: 梯度的理解
 Date: 2018-05-12
-Modified: 2018-05-15
+Modified: 2018-05-27
 Category: 机器学习
 Tags: python,machine learn
 
@@ -53,7 +53,7 @@ x_j = x_j - \alpha \frac{\partial f}{\partial x_j} \\\\
 x_n = x_n - \alpha \frac{\partial f}{\partial x_n} \\\\
 \end{equation}
 
-# 一元情况下的示例
+## 一元情况下的示例
 
 以这段简单的[手动求导的pytorch代码](https://github.com/hunkim/PyTorchZeroToAll/blob/master/02_manual_gradient.py)为例:
 ```python
@@ -83,3 +83,69 @@ $$f(w) = (xw)^2 + y^2 - 2(xw)y$$
 $${\partial f(w) \over \partial w} = 2xw - 2xy = 2x(xw-y)$$
 
 即代码中的`gradient`函数。
+
+# 梯度下降算法
+
+## 数学推导
+
+[参考](https://blog.csdn.net/yhao2014/article/details/51554910)
+
+设拟合函数或神经网络的前向传播函数为$h(\theta)$:
+
+$$h(\theta) = \theta_0 + \theta_1 x_1 + \ldots + \theta_n x_n = \sum_{j=0}^n \theta_n x_n$$
+
+其向量形式：
+
+$$h_\theta (x) = \theta^T X$$
+
+损失函数为：
+
+$$J(\theta) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^i) - y^i)^2$$
+
+优化目标为最小化损失函数。
+
+### 批量梯度下降BGD算法推导
+
+对每个$\theta_j$求偏导，得到每个$\theta_j$的梯度：
+
+$$\frac{\partial J(\theta)}{\partial \theta_j} = \frac{1}{m} \sum_{i = 1}^m (h_\theta (x^i) - y^i) x_j^i$$
+
+优化参数的过程就是按每个参数的负梯度方向方向来更新每个$\theta_j$，其中的$\alpha$表示步长（学习率）：
+
+$$\theta_j = \theta_j - \alpha \frac{\partial J(\theta)}{\partial \theta_j} = \theta_j - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta (x^i) - y^i) x_j^i$$
+
+由于BGD算法需要使用所有训练集数据，如果样本数量很多（即m很大），这种计算会非常耗时。所以就引入了随机梯度下降SGD算法。
+
+### 随机梯度下降SGD
+
+先将损失函数进行改写：
+
+$$J(\theta) = \frac{1}{2m} \sum_{i=1}^m (h_\theta (x^i) - y^i)^2 = \frac{1}{m} \sum_{i=1}^m cost(\theta , (x^i,y^i))$$
+
+其中的$cost(\theta , (x^i, y^i)) = \frac{1}{2}(h_\theta (x^i) - y^i)^2$称为样本点$(x^i, y^i)$的损失函数。这样就将问题转化为了对单个样本点的优化问题。
+
+对这个新的损失函数求偏导，得到每个$\theta_j$的梯度
+
+$$\frac{\partial cost(\theta, (x^i, y^i))}{\partial \theta_j} = (h_\theta (x^i) - y^i)x^i$$
+
+然后根据这个梯度的负方向来更新每个$\theta_j$
+
+$$\theta_j = \theta_j - \alpha \frac{\partial cost(\theta , (x^i, y^i))}{\partial \theta_j} = \theta_j - \alpha (h_\theta (x^i) - y^i) x^i$$
+
+随机梯度下降每次迭代只计算一个柆，能大大减少计算量。缺点是SGD并不是每次迭代都会向着整体最优化方向，并且最终得到的解不一定是全局最优解，而只是局部最优解。最终结果往往是在全局最优解附近。
+
+# 求导与神经网络的反向传播
+
+[参考](https://www.cnblogs.com/charlotte77/p/5629865.html)
+
+即采用链式求导法逐层求导。
+
+## pytorch中的自动求导功能
+
+[参考](https://blog.csdn.net/manong_wxd/article/details/78734358)
+
+pytorch中的自动求导机制是因为它对历史信息保存了记录。每个变更都有一个`.creator`属性，它指向把它作为输出的函数。这是一个由`Function`对象作为节点组成的有向无环图（DAG）的入口点，它们之间的引用就是图的边。每次执行一个操作时，一个表示它的新`Function`对象就被实例化，它的`forward()`方法被调用，并且它输出的`Variable`的创建者被设置为这个函数。然后，通过跟踪从任何变量到叶节点的路径，可以重建创建数据的操作序列，并自动计算梯度。
+
+
+
+
