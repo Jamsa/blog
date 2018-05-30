@@ -3,7 +3,6 @@ Date: 2018-05-12
 Modified: 2018-05-12
 Category: 开发
 Tags: mq
-Status: draft
 
 ## 主要概念
 
