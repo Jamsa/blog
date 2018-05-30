@@ -77,12 +77,16 @@ include 'demo1:api','demo1:service'
 ```groovy
 //依赖版本号
 ext.versions = [
-    springCloud :'1.3.2.RELEASE',
-    netflix:'1.4.3.RELEASE'
+        spring: '4.3.14.RELEASE',
+        springCloud :'1.3.2.RELEASE',
+        springBoot : '1.5.10.RELEASE',
+        netflix:'1.4.3.RELEASE'
 ]
 //依赖
 ext.libs = [
-        "sc-starter":"org.springframework.cloud:spring-cloud-starter:${versions.springCloud}",
+        "spring-cloud":"org.springframework.cloud:spring-cloud-starter:${versions.springCloud}",
+        "spring-boot":"org.springframework.boot:spring-boot-starter:${versions.springBoot}",
+        "spring-web":"org.springframework:spring-web:${versions.spring}",
         "eureka-server":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.netflix}",
         "eureka-client":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.netflix}",
         "zuul":"org.springframework.cloud:spring-cloud-starter-netflix-zuul:${versions.netflix}",
@@ -133,9 +137,15 @@ subprojects {
     targetCompatibility = '1.8'
     group = 'org.github.jamsa.sc'
     version = '0.0.1'
+    if(name=='api'){
+        dependencies {
+            compile libs.'spring-web'
+        }
+    }
 
     dependencies {
-        compile libs.'sc-starter'
+        //compile libs.'spring-web'
+        //compile libs.'spring-boot'
         compile libs.'http-client'
     }
 
@@ -146,9 +156,10 @@ subprojects {
         baseName = archivesBaseName
     }
 }
+
 ```
 
-需要排除的分类目录，在`ext.excludeFolds`中维护，`subprojects`根据这个配置项进行排除。`subprojects`段中集中处理各模块的公共依赖和Gradle插件，如`api`模块都不需要依赖`spring boot`插件；自动处理打包参数，设置打包名称。
+需要排除的分类目录，在`ext.excludeFolds`中维护，`subprojects`根据这个配置项进行排除。`subprojects`段中集中处理各模块的公共依赖和Gradle插件，如`api`模块都不需要依赖`spring boot`插件，但是需要`spring-web`；自动处理打包参数，设置打包名称。
 
 这样处理后`api`类的子模块如果没有其它依赖，就不再需要添加`build.gradle`。`service`类的包，则只需要声明依赖和为`jar`任务指定`Main-Class`。
 
@@ -169,6 +180,3 @@ jar {
 ```
 
 它声明了依赖于`:demo0:api`并设定了`Main-Class`。
-
-
-
