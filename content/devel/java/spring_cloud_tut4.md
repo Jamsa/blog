@@ -101,3 +101,83 @@ public class ConsumerController{
 
 使用服务提供方的API，只是在消费端编写接口继承提供方的接口。所共享的代码也仅仅只是接口中的方法声明和各类注解了。
 
+这里我们另外编写一个使用`provider:api`中的接口的服务：
+
+```java
+@FeignClient(name="sc-provider",fallback = FeignFallbackConsumerRemoteService.class)
+@RequestMapping("/provider")
+public interface ConsumerRemoteApiService extends ProviderRemoteService {
+
+}
+```
+
+如上所述，这只是一个空接口。
+
+将它注入到`ConsumerController`中，并在`helloByApi`这个方法中调用：
+
+```java
+    @Autowired
+    private ConsumerRemoteApiService consumerRemoteApiService;
+
+    @RequestMapping("/helloByApi")
+    public String helloByApi(@RequestParam String name) {
+        return "Hello From Remote By API:"+consumerRemoteApiService.hello(name);
+    }
+```
+
+重新构建并运行之后，访问`http://localhost:9011/consumer/helloByApi?name=Jamsa`，结果报错了：
+
+```
+Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Sun Jun 03 23:04:58 CST 2018
+There was an unexpected error (type=Internal Server Error, status=500).
+status 404 reading ConsumerRemoteApiService#hello(String); content: {"timestamp":1528038298528,"status":404,"error":"Not Found","message":"No message available","path":"/hello"}
+```
+
+这是因为我在api中写的`RequestMapping`并非最终的`uri`，我在`ProviderController`上添加了`@RequestMapping("/provider")`注解，最终`hello`方法被映射到了`/provider/hello`上。
+
+在上面这种方式进行消费时，虽然我在`ConsumerRemoteApiService`中也添加了`@RequestMapping("/provider")`注解，但是这个注解好像被忽略掉了，估计是因为被注解的类上没有`Controller`注解。
+
+如果要让这种方式调用成功，就不能在`ProviderController`上添加`@RequestMapping`注解。需要将它的内容合并到`ProviderRemoteService`的`@RequestMapping`。
+
+`ProviderController`调整为
+
+```java
+/**
+ *  服务提供方
+ * Created by zhujie on 2018/5/29.
+ */
+@SpringBootApplication
+@EnableEurekaClient
+@RestController
+@ComponentScan(basePackages={"com.github.jamsa.sc.provider"})
+//@RequestMapping("/provider")
+public class ProviderController implements ProviderRemoteService {
+
+    @Override
+    public String hello(String name) {
+        return "Hello "+name;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProviderController.class,args);
+    }
+}
+
+```
+
+`ProvicerRemoteServic`调整为：
+
+```java
+public interface ProviderRemoteService {
+    @RequestMapping(value="/provider/hello",method= RequestMethod.GET)
+    String hello(@RequestParam("name") String name);//这个name对服务消费方是必须的，否则调用时会报错
+}
+```
+
+调整完毕后重新构建`provider:service`和`consumer:service`（因为它们都依赖于`provider:api`），重新运行这两个应用，就能在`http://localhost:9011/consumer/helloByApi?name=Jamsa`看到期望的结果了。
+
+
