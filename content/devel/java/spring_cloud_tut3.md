@@ -10,7 +10,7 @@ Tags: spring cloud
 
 对于微服务间是否需要进行代码共享，大家都有不同的看法。在本系列文章中，为减少代码量，我们使用了api模块在服务提供方和消费方间进行代码共享。
 
-在实际的生产应用上，实际上我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。
+在实际的生产应用中，我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。
 
 Philipp Hauer的两篇文章可供参考
 
@@ -20,9 +20,9 @@ Philipp Hauer的两篇文章可供参考
 
 # 创建服务提供者
 
-我们在`demo0`中创建一个服务，启动`demo0-service`应用后，将在`Eureka`注册中心中看到它。
+我们在`provider`中创建一个服务，启动`provider-service`应用后，将在`Eureka`注册中心中看到它。
 
-在[第一篇文章]({filename}spring_cloud_tut1.md)提到过，`demo0`只起目录分类作用，不是实际工程，实际工程是它下面的两个子模块`api`和`service`其中`api`提供客户端调用的接口，供后面使用`Feign`使用，`service`是一个Spring Boot应用，提供实际的服务。
+在[第一篇文章]({filename}spring_cloud_tut1.md)提到过，`provider`只起目录分类作用，不是实际工程，实际工程是它下面的两个子模块`api`和`service`其中`api`提供客户端调用的接口，供后面使用`Feign`使用，`service`是一个Spring Boot应用，提供实际的服务。
 
 ## 配置模块依赖
 
@@ -30,26 +30,26 @@ Philipp Hauer的两篇文章可供参考
 
 ```groovy
 dependencies {
-    compile project(':demo0:api')
+    compile project(':provider:api')
     compile libs.'eureka-client'
 }
 
 jar {
     manifest {
         attributes "Manifest-Version": 1.0,
-                'Main-Class': 'com.github.jamsa.demo0.controller.Demo0Controller'
+                'Main-Class': 'com.github.jamsa.provider.controller.ProviderController'
     }
 }
 ```
 
-这里的`compile project(':demo0:api')`标明`service`模块依赖于`api`模块。
+这里的`compile project(':provider:api')`标明`service`模块依赖于`api`模块。
 
 ## 创建服务
 
 在`api`模块中添加远程服务接口：
 
 ```java
-public interface Demo0RemoteService {
+public interface ProviderRemoteService {
     @RequestMapping(value="/hello",method= RequestMethod.GET)
     String hello(@RequestParam String name);
 }
@@ -61,8 +61,8 @@ public interface Demo0RemoteService {
 ```java
 @SpringBootApplication
 @EnableEurekaClient
-@RestController("/demo0")
-public class Demo0Controller implements Demo0RemoteService {
+@RestController("/provider")
+public class ProviderController implements ProviderRemoteService {
 
     @Override
     public String hello(String name) {
@@ -70,7 +70,7 @@ public class Demo0Controller implements Demo0RemoteService {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Demo0Controller.class,args);
+        SpringApplication.run(ProviderController.class,args);
     }
 }
 ```
@@ -80,7 +80,7 @@ public class Demo0Controller implements Demo0RemoteService {
 ```yaml
 spring:
   application:
-    name: sc-demo0
+    name: sc-provider
 server:
   port: 9010
 eureka:
@@ -93,11 +93,11 @@ eureka:
 
 ## 构建并启动服务
 
-在根模块中使用`gradle :demo0:service:build`构建服务注册中心应用。
+在根模块中使用`gradle :provider:service:build`构建服务注册中心应用。
 
-完成后使用`java -jar demo0/service/build/libs/sc-demo0-service-0.0.1.jar`启动服务注册中心。
+完成后使用`java -jar provider/service/build/libs/sc-provider-service-0.0.1.jar`启动服务注册中心。
 
-就能在`http://localhost:9001`查看到`SC_DEMO0`服务的注册信息了。
+就能在`http://localhost:9001`查看到`SC_PROVIDER`服务的注册信息了。
 
 ![Eureka服务注册中心]({attach}spring_cloud_tut/eureka2.png)
 

@@ -22,13 +22,13 @@ Tags: spring cloud
 │   ├── build.gradle
 │   └── src
 │       └── main
-├── demo0
+├── provider
 │   ├── api
 │   │   └── src
 │   └── service
 │       ├── build.gradle
 │       └── src
-├── demo1
+├── consumer
 │   ├── api
 │   │   └── src
 │   └── service
@@ -45,7 +45,7 @@ Tags: spring cloud
 └── web
 ```
 
- - `demo0`和`demo1`为两个业务服务模块，其中`demo0`和`demo1`只做目录分类用，不是实际的模块。`api`和`service`是模块，`api`存放客户端服务端共享的接口和类，`service`是实际的服务提供者。
+ - `provider`和`consumer`为两个业务服务模块，其中`provider`和`consumer`只做目录分类用，不是实际的模块。`api`和`service`是模块，`api`存放客户端服务端共享的接口和类，`service`是实际的服务提供者。
 
  - `registry`为Eureka为基础构建的服务注册中心。
  
@@ -67,10 +67,10 @@ Tags: spring cloud
 rootProject.name = 'sc-cloud'
 
 include 'registry','gateway'
-include 'demo0:api','demo0:service'
-include 'demo1:api','demo1:service'
+include 'provider:api','provider:service'
+include 'consumer:api','consumer:service'
 ```
-根模块代号`sc-cloud`，包含`registry`，`gateway`和两个`demo`模块下的`api`和`service`模块。由于Gradle在处理`incdlude ‘demo0:api‘`时也会把`demo0`包含进去，因此我们在build.gradle中进行全局性配置时需要排除这些只起分类作用的模块。
+根模块代号`sc-cloud`，包含`registry`，`gateway`和`provider`、`consumer`模块下的`api`和`service`模块。由于Gradle在处理`incdlude ‘provider:api‘`时也会把`provider`包含进去，因此我们在build.gradle中进行全局性配置时需要排除这些只起分类作用的模块。
 
 ## 根模块的build.gradle
 
@@ -93,7 +93,7 @@ ext.libs = [
         "http-client":"org.apache.httpcomponents:httpclient:4.5.2"
 ]
 //只起分类作用的目录
-ext.excludeFolds = ["demo0","demo1"]
+ext.excludeFolds = ["provider","consumer"]
 
 buildscript {
     ext {
@@ -163,20 +163,20 @@ subprojects {
 
 这样处理后`api`类的子模块如果没有其它依赖，就不再需要添加`build.gradle`。`service`类的包，则只需要声明依赖和为`jar`任务指定`Main-Class`。
 
-## `demo0:service`的build.gradle
+## `provider:service`的build.gradle
 
 ```groovy
 dependencies {
-    compile project(':demo0:api')
+    compile project(':provider:api')
     compile libs.'eureka-client'
 }
 
 jar {
     manifest {
         attributes "Manifest-Version": 1.0,
-                'Main-Class': 'com.github.jamsa.demo0.controller.Demo0Controller'
+                'Main-Class': 'com.github.jamsa.provider.controller.ProviderController'
     }
 }
 ```
 
-它声明了依赖于`:demo0:api`并设定了`Main-Class`。
+它声明了依赖于`:provider:api`并设定了`Main-Class`。
