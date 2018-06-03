@@ -8,9 +8,9 @@ Tags: spring cloud
 
 # 微服务下的代码共享
 
-对于微服务间是否需要进行代码共享，大家都有不同的看法。在本系列文章中，为减少代码量，我们使用了api模块在服务提供方和消费方间进行代码共享。
+对于微服务间是否需要进行代码共享，大家都有不同的看法。
 
-在实际的生产应用中，我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。
+虽然，实际的生产应用中，我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。但是，在[下一篇]({filename}spring_cloud_tut4.md)讲服务消费的时候将使用几种不同的方式来调用服务。在本系列文章的其它地方，为减少代码量，我们主要使用了api模块在服务提供方和消费方间进行代码共享。
 
 Philipp Hauer的两篇文章可供参考
 
@@ -37,7 +37,7 @@ dependencies {
 jar {
     manifest {
         attributes "Manifest-Version": 1.0,
-                'Main-Class': 'com.github.jamsa.provider.controller.ProviderController'
+                'Main-Class': 'com.github.jamsa.sc.provider.controller.ProviderController'
     }
 }
 ```
@@ -51,17 +51,20 @@ jar {
 ```java
 public interface ProviderRemoteService {
     @RequestMapping(value="/hello",method= RequestMethod.GET)
-    String hello(@RequestParam String name);
+    String hello(@RequestParam("name") String name);//这个name对服务消费方是必须的，否则调用时会报错
 }
-
 ```
+
+这个接口可供服务提供方和消费方共享。
 
 在`service`模块中编写Spring Boot程序入口和服务实现：
 
 ```java
 @SpringBootApplication
 @EnableEurekaClient
-@RestController("/provider")
+@RestController
+@ComponentScan(basePackages={"com.github.jamsa.sc.provider"})
+@RequestMapping("/provider")
 public class ProviderController implements ProviderRemoteService {
 
     @Override
@@ -74,6 +77,8 @@ public class ProviderController implements ProviderRemoteService {
     }
 }
 ```
+
+这里的`@EnableEurekaClient`注解用于向服务注册中心注册服务。另一个类似的注解是`@EnableDiscoveryClient`两者的区别在于前者来自于`spring-cloud-netflix`只能用于`eureka`，后者来自于`spring-cloud-commons`，可用于其它类型的注册中心，如果使用了`eureka`则两者的作用是一样的。
 
 在`application.yml`中配置服务注册中心地址：
 
@@ -100,4 +105,6 @@ eureka:
 就能在`http://localhost:9001`查看到`SC_PROVIDER`服务的注册信息了。
 
 ![Eureka服务注册中心]({attach}spring_cloud_tut/eureka2.png)
+
+访问`http://localhost:9010/provider/hello?name=Jamsa`能直接访问到该服务。
 

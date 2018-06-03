@@ -1,0 +1,103 @@
+Title: Spring Cloud 上手4-服务消费者
+Date: 2018-06-03
+Modified: 2018-06-03
+Category: 开发
+Tags: spring cloud
+
+这是Spring Cloud上手系列的第四篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
+
+# 版本依赖的坑
+
+在写前面几篇的时候都没感觉到SpringCloud的依赖关系处理必须使用`io.spring.dependency-management`来处理。在使用Feign进行服务消费时遇到很多错误：
+
+ - Feign服务客户端的Bean无法实例化
+ 
+ - java.lang.NoClassDefFoundError: feign/Feign$Builder
+ 
+和其它很多错误。现在已经将[第一篇]({filename}spring_cloud_tut1.md)中的构建依赖处理好。
+
+# 配置模块依赖
+
+在`consumer:service`工程的`build.gradle`中添加以下配置：
+
+```gradle
+dependencies {
+    compile project(':provider:api')
+    compile libs.'eureka-client'  //Eureka客户端
+}
+
+jar {
+    manifest {
+        attributes "Manifest-Version": 1.0,
+                'Main-Class': 'com.github.jamsa.sc.consumer.controller.ConsumerController'
+    }
+}
+```
+即这个工程有三个主要的依赖：
+
+ - `provider:api`中的接口声明。
+ 
+ - 它也是Eureka客户端工程，也依赖于`eureka-client`。
+ 
+  - 对`feign`的依赖则由全局的`build.gradle`中处理。
+
+# 使用Feign在消费方编写API进行消费
+
+`consumer:service`中添加消费接口，和对应的Fallback实现，fallback实现中不需要配置`@RequestParam`这类注解，因为它不是对远程方法的引用，它本身就是无法连接远程服务时的替代实现。
+
+```java
+/**
+ * 引用服务提供方提供的接口
+ */
+@FeignClient(name="sc-provider",fallback = FeignFallbackConsumerRemoteService.class)
+public interface ConsumerRemoteService{
+    @RequestMapping(value="/provider/hello",method= RequestMethod.GET)
+    String hello(@RequestParam("name") String name);
+}
+
+@Component
+public class FeignFallbackConsumerRemoteService implements ConsumerRemoteService {
+
+    @Override
+    public String hello(String name) {
+        return "未连接远程服务";
+    }
+}
+```
+
+添加控制器：
+
+```java
+
+/**
+ * 服务消费方
+ */
+@SpringBootApplication
+@EnableEurekaClient
+@EnableFeignClients(basePackages = {"com.github.jamsa.sc.consumer.service"})
+@RestController
+@RequestMapping("/consumer")
+@ComponentScan(basePackages={"com.github.jamsa.sc.consumer"})
+public class ConsumerController{
+
+    //注入服务接口
+    @Autowired
+    private ConsumerRemoteService consumerRemoteService;
+
+    @RequestMapping("/hello")
+    public String hello(@RequestParam String name) {
+        return "Hello From Remote:"+consumerRemoteService.hello(name);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ConsumerController.class,args);
+    }
+}
+```
+
+在工程根目录使用`gradle :consumer:service:build`构建之后，执行`java -jar consumer/service/build/libs/sc-consumer-service-0.0.1.jar`。启动完毕后，就可以通过`http://localhost:9011/consumer/hello?name=Jamsa`直接访问就能看到从`provider`返回的信息。
+
+# 使用Feign 和服务提供方的API进行消费
+
+使用服务提供方的API，只是在消费端编写接口继承提供方的接口。所共享的代码也仅仅只是接口中的方法声明和各类注解了。
+

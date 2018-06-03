@@ -1,6 +1,6 @@
 Title: Spring Cloud 上手1-准备
 Date: 2018-05-30
-Modified: 2018-05-30
+Modified: 2018-06-03
 Category: 开发
 Tags: spring cloud
 
@@ -77,56 +77,56 @@ include 'consumer:api','consumer:service'
 ```groovy
 //依赖版本号
 ext.versions = [
-        spring: '4.3.14.RELEASE',
-        springCloud :'1.3.2.RELEASE',
-        springBoot : '1.5.10.RELEASE',
-        netflix:'1.4.3.RELEASE'
+        spring: '4.3.17.RELEASE',
+        springCloud :'Edgware.SR3'
 ]
 //依赖
 ext.libs = [
-        "spring-cloud":"org.springframework.cloud:spring-cloud-starter:${versions.springCloud}",
-        "spring-boot":"org.springframework.boot:spring-boot-starter:${versions.springBoot}",
+        "spring-cloud":"org.springframework.cloud:spring-cloud-dependencies:${versions.springCloud}",
         "spring-web":"org.springframework:spring-web:${versions.spring}",
-        "eureka-server":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.netflix}",
-        "eureka-client":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${versions.netflix}",
-        "zuul":"org.springframework.cloud:spring-cloud-starter-netflix-zuul:${versions.netflix}",
-        "http-client":"org.apache.httpcomponents:httpclient:4.5.2"
+        "spring-boot":"org.springframework.boot:spring-boot-starter",
+        "eureka-server":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-server",
+        "eureka-client":"org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
+        "zuul":"org.springframework.cloud:spring-cloud-starter-netflix-zuul",
+        "feign":"org.springframework.cloud:spring-cloud-starter-feign"
 ]
 //只起分类作用的目录
 ext.excludeFolds = ["provider","consumer"]
 
 buildscript {
     ext {
-        springIOVersion = '1.0.5.RELEASE'
-        springBootVersion = '1.5.10.RELEASE'
+        //springIOVersion = '1.0.5.RELEASE'
+        springBootVersion = '1.5.13.RELEASE'
     }
     repositories {
-        jcenter()
-        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         mavenCentral()
-        maven { url "http://repo.spring.io/release" }
-        maven { url "http://repo.spring.io/milestone" }
-        maven { url "http://repo.spring.io/snapshot" }
-        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:${springIOVersion}"
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
 }
 
+
 subprojects {
     //对分类目录不需要进行配置
     if(excludeFolds.contains(name)) return
+    
 
     repositories {
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        maven { url "https://oss.sonatype.org/content/groups/public/" }
-        maven { url "https://repo.spring.io/libs-milestone/" }
         mavenCentral()
     }
 
     apply plugin: 'java'
+
+    apply plugin: "io.spring.dependency-management"
+
+    dependencyManagement {
+        imports {
+            mavenBom libs.'spring-cloud'
+        }
+    }
 
     //api工程不需要使用spring boot插件
     if(!name.contains("api")) {
@@ -137,16 +137,18 @@ subprojects {
     targetCompatibility = '1.8'
     group = 'org.github.jamsa.sc'
     version = '0.0.1'
+
     if(name=='api'){
+        // API类工程的基本依赖
         dependencies {
             compile libs.'spring-web'
         }
-    }
-
-    dependencies {
-        //compile libs.'spring-web'
-        //compile libs.'spring-boot'
-        compile libs.'http-client'
+    }else{
+        // Feign客户端工程的基本依赖
+        dependencies {
+            compile libs.'feign'
+            compile libs.'eureka-client'
+        }
     }
 
     //设置打包参数
@@ -163,6 +165,10 @@ subprojects {
 
 这样处理后`api`类的子模块如果没有其它依赖，就不再需要添加`build.gradle`。`service`类的包，则只需要声明依赖和为`jar`任务指定`Main-Class`。
 
+需要注意的是`io.spring.dependency-management`，这个依赖管理插件。由于SpringCloud组件较多依赖关系复杂，使用该插件才能正确的配置好版本间的依赖关系，该插件能自动根据`springCloud`版本号自动选择下面那些相依赖的组件的版本。而上面指定的spring版本也是根据依赖查询到的版本号。
+
+`buildscript`中的内容主要处理gradle `spring boot`插件，该插件主要用于打包FatJar。因此，在API工程中不需要启用这一插件。
+
 ## `provider:service`的build.gradle
 
 ```groovy
@@ -174,7 +180,7 @@ dependencies {
 jar {
     manifest {
         attributes "Manifest-Version": 1.0,
-                'Main-Class': 'com.github.jamsa.provider.controller.ProviderController'
+                'Main-Class': 'com.github.jamsa.sc.provider.controller.ProviderController'
     }
 }
 ```
