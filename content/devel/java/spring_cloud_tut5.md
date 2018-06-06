@@ -4,6 +4,8 @@ Modified: 2018-06-04
 Category: 开发
 Tags: spring cloud
 
+这是Spring Cloud上手系列的第四篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
+
 # ZUUL概述
 
 服务网关是微服务中向外部系统提供REST API过程中起服务路由、负载均衡的角色。也可将权限控制等功能放在服务网关上，为微服务提供保护。

@@ -1,6 +1,6 @@
 Title: Spring Cloud 上手4-服务消费者
 Date: 2018-06-03
-Modified: 2018-06-03
+Modified: 2018-06-06
 Category: 开发
 Tags: spring cloud
 
@@ -179,5 +179,42 @@ public interface ProviderRemoteService {
 ```
 
 调整完毕后重新构建`provider:service`和`consumer:service`（因为它们都依赖于`provider:api`），重新运行这两个应用，就能在`http://localhost:9011/consumer/helloByApi?name=Jamsa`看到期望的结果了。
+
+# 直接使用RestTempalte消费服务
+
+除使用Feign外，我们也可以直接使用RestTemplate来进行服务消费。
+
+首先，为了配置方便，我们在`controller`包下增加`Config`配置`RestTemplate`。
+
+```java
+@Configuration
+public class Config {
+    @Bean
+    @LoadBalanced
+    public RestTemplate getRestTemplate() {
+        return new RestTemplate();
+    }
+
+}
+```
+
+然后，在`ConsumerController`中注入`RestTemplate`并添加这种调用方式的测试入口。
+
+```java
+@Autowired
+    private RestTemplate restTemplate;
+
+    @RequestMapping("/helloByRest")
+    public String helloByRest(@RequestParam String name) {
+        return "Hello From Remote By RestTemplate: "+restTemplate.getForObject("http://SC-PROVIDER/provider/hello?name="+name,String.class);
+    }
+```
+
+
+注意，这里的`@LoadBalanced`注解，如果不使用这个注解，我们在调用服务的时候就只能使用`http://localhost:9010/provider/hello`这种固定的URL。在这里我们使用的URL是通过服务名拼接的，`http://SC-PROVIDER/provider/hello`并非真实服务提供方的URL，而是由`http://{Eureka服务名}/...`构成的，为什么可以这样调用呢？还是因为我们在`RestTempate`这个bean定义的地方使用了`@LoadBalanced`注解。
+
+如果不添加这个注解，`RestTempalte`将不具备负载均衡的能力，只能单点调用。添加这个注解后对RestTemplate的调用将被拦截，拦截器将使用Ribbon提供的负载均衡能力，从Eureka中获取服务节点，并挑选某个节点调用。
+
+相关细节可参考 [这篇文章](https://blog.csdn.net/puhaiyang/article/details/79682177)。
 
 
