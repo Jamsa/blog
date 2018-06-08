@@ -4,7 +4,7 @@ Modified: 2018-06-04
 Category: 开发
 Tags: spring cloud
 
-这是Spring Cloud上手系列的第四篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
+这是Spring Cloud上手系列的第五篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
 # ZUUL概述
 
@@ -14,27 +14,7 @@ SpringCloud Netflix中的Zuul承担了这样的功能。它可以作为Eureka客
 
 使用Zuul的典型场景是这样的：
 
-```
-                              -------------
-                             (   外部调用  )
-                              -------------
-                                    ||
-                         +-----------------------+
-                         |         Zuul          |
-                         +-----------------------+
-                                    ||
-                                    ||
-                         +-----------------------+
-                         |       consumer        |
-                         +-----------------------+
-                               ||          || 
-                         +----------+  +---------+
-                         |Service A |  |Service B|
-                         | provider |  | provider|
-                         |          |  |         |
-                         +----------+  +---------+
-
-```
+![Zuul服务网关]({attach}spring_cloud_tut/zuul.png)
 
 外部调用通过Zuul调用内部的REST服务，通常情况下内部并不会把所有服务都暴露给外部。上图中的`Sercie A/B provider`就只是供内部调用的，`consumer`供外部系统调用的服务。
 

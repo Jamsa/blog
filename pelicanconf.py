@@ -40,7 +40,7 @@ THEME = 'pelican-themes/pelican-fresh'
 
 PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = [ "render_math","pelican-toc"]#
+PLUGINS = [ "render_math","pelican-toc"]#,"plantuml"
 
 #pelican_toc插件配置
 TOC = {

@@ -1,0 +1,105 @@
+# PlantUML
+
+## Sequence
+
+::uml:: format="png" alt="Sequence"
+@startuml
+  Alice -> Bob: Authentication Request
+  Bob --> Alice: Authentication Response
+
+  Alice -> Bob: Another authentication Request
+  Alice <-- Bob: another authentication Response
+@enduml
+::end-uml::
+
+## Archimate
+
+::uml:: format="png" alt="Archimate"
+@startuml
+!define Junction_Or circle #black
+!define Junction_And circle #whitesmoke
+
+Junction_And JunctionAnd
+Junction_Or JunctionOr
+
+archimate #Technology "VPN Server" as vpnServerA <<technology-device>>
+
+rectangle GO #lightgreen
+rectangle STOP #red
+rectangle WAIT #orange
+GO -up-> JunctionOr
+STOP -up-> JunctionOr
+STOP -down-> JunctionAnd
+WAIT -down-> JunctionAnd
+@enduml
+::end-uml::
+
+
+
+## ditta
+
+::uml:: format="png" alt="Ditta"
+
+@startuml
+ditaa(--no-shadows, scale=0.8)
+/--------\   +-------+
+|cAAA    +---+Version|
+|  Data  |   |   V3  |
+|  Base  |   |cRED{d}|
+|     {s}|   +-------+
+\---+----/
+@enduml
+::end-uml::
+
+@startditaa
+ditta(--no-shadows, scale=0.8)
+    /-------------\
+    |c1FF         |
+    |    Visitor  |
+    \-------------/
+           |
+           v
++-----------------------+
+|         Zuul          |
++-----------------------+
+           |
+           v
++-----------------------+
+|       consumer        |
++-----------------------+
+      |           | 
+      v           v
++---------+   +---------+
+|Service A|   |Service B|
+| provider|   | provider|
+|         |   |         |
++---------+   +---------+
+@endditaa
+
+@startuml
+ditaa(--no-shadows, scale=0.8)
+/--------\   +-------+
+|cAAA    +---+Version|
+|  Data  |   |   V3  |
+|  Base  |   |cRED{d}|
+|     {s}|   +-------+
+\---+----/
+@enduml
+
+## WireFrame
+
+::uml:: format="png" alt="Ditta"
+@startuml
+salt
+{
+  Just plain text
+  [This is my button]
+  ()  Unchecked radio
+  (X) Checked radio
+  []  Unchecked box
+  [X] Checked box
+  "Enter text here   "
+  ^This is a droplist^
+}
+@enduml
+::end-uml::

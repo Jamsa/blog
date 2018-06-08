@@ -4,7 +4,7 @@ Modified: 2018-06-05
 Category: 开发
 Tags: spring cloud
 
-这是Spring Cloud上手系列的第四篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
+这是Spring Cloud上手系列的第六篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
 # Ribbon 概述
 
