@@ -1,0 +1,8 @@
+@startuml
+node providerService
+node consumerService
+queue helloQue
+
+providerService --> helloQue: 发送消息
+helloQue --> consumerService: 接收消息
+@enduml

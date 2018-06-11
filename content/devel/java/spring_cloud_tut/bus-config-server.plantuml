@@ -1,0 +1,25 @@
+@startuml
+storage 配置仓库
+node 配置服务
+node serviceA
+node serviceB
+node serviceC
+node webhook
+queue 总线
+
+配置仓库 --> 配置服务: 读取配置
+
+配置服务 --> serviceA: 读取配置
+配置服务 --> serviceB: 读取配置
+配置服务 --> serviceC: 读取配置
+
+配置服务 --> 总线: 发送消息
+serviceA <-- 总线: 接收消息
+serviceB <-- 总线: 接收消息
+serviceC <-- 总线: 接收消息
+
+配置仓库 ..> webhook: 修改配置信息后触发
+
+webhook --> 配置服务: /bus/refresh刷新
+
+@enduml

@@ -381,8 +381,9 @@ ext.libs = [
 
 ## 配置刷新方法
 
+在刷新配置的测试中，由于需要测试修改配置中心的配置文件，我们需要先把配置中心的配置文件移至`resources`目录的外面。即，将这些文件不进行打包。我们先将`config`应用的`src/main/resources/config`目录移至根模块下的`support`目录下。然后，修改`config`应用的`application.yml`配置文件的`spring.cloud.config.server.native.searchLocations`属性，将它的值修改为`file:config目录路径`。
+
 在`ProviderController`上添加`@RefreshScope`注解，当配置信息修改之后，我们可以通过发送`POST`请求至`http://localhost:9010/refresh`来刷新`@Value`注解对应的配置信息。在refresh过程中，可以从控制台查看到重新从配置中心获取配置信息的日志。
 
-
-
+比如，修改：`support/sc-provider-dev.yml`里`sc.provider.defaultUser`的值。之后发送请求至`provider:service`应用（`curl -X POST http://localhost:9010/refresh`）。再查看`http://localhost:9010/provider/config`就能看到新的配置文件值。
 
