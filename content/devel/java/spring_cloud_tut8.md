@@ -23,7 +23,7 @@ Spring Cloud Bus以Spring Cloud Stream为基础，建立应用间的通讯通道
 
 ## 安装消息中间件
 
-Spring Cloud Bus支持RabbitMQ和Kafka两种服务。这里我们选择RabbitMQ。安装完毕后，默认的服务商品是`5672`，默认安装会安装管理控制台，管理控制台运行在`15672`端口。
+Spring Cloud Bus支持RabbitMQ和Kafka两种服务。这里我们选择RabbitMQ。安装完毕后，默认的服务端口是`5672`，默认安装会安装管理控制台，管理控制台运行在`15672`端口。
 
 ![RabbitMQ]({attach}spring_cloud_tut/rabbitmq.png)
 

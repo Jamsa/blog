@@ -1,0 +1,13 @@
+@startuml
+node Zipkin
+queue RabbitMQ
+node Gateway
+node ConsumerService
+node ProviderService
+
+Gateway --> RabbitMQ
+ConsumerService --> RabbitMQ
+ProviderService --> RabbitMQ
+RabbitMQ --> Zipkin
+
+@enduml

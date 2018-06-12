@@ -1,0 +1,13 @@
+@startuml
+actor 发起
+node Gateway
+node ConsumerService
+node ProviderService
+
+发起 --> Gateway: TraceId=null,SpanId=null
+Gateway --> ConsumerService: TraceId=X,SpanId=A
+ConsumerService --> ProviderService: TraceId=X,SpanId=B
+ProviderService --> ConsumerService: TraceId=X,SpanId=B
+ConsumerService --> Gateway: TraceId=X,SpanId=A
+Gateway --> 发起:  TraceId=X,SpanId=A
+@enduml
