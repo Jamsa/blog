@@ -1,0 +1,18 @@
+@startuml
+'default
+left to right direction
+artifact 服务A
+artifact 服务B
+agent Logstash
+storage ElasticSearch
+rectangle Kibana
+
+
+服务A --> Logstash
+服务B --> Logstash
+
+Logstash --> ElasticSearch
+
+ElasticSearch --> Kibana
+
+@enduml

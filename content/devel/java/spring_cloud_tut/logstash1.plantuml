@@ -1,0 +1,22 @@
+@startuml
+'default
+left to right direction
+
+frame 节点A {
+      artifact 服务A
+      agent LogstashA
+}
+
+frame 节点B {
+      artifact 服务B
+      agent LogstashB
+}
+storage ElasticSearch
+rectangle Kibana
+
+
+节点A --> ElasticSearch
+节点B --> ElasticSearch
+ElasticSearch --> Kibana
+
+@enduml
