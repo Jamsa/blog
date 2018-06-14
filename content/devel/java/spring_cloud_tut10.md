@@ -10,7 +10,7 @@ Tags: spring cloud
 
 ELK是Logstash、ElasticSearch和Kibana的组合。Logstash处理日志的收集，ElasticSearch处理日志的检索，Kibana对日志进行可视化展示和查询。
 
-在Spring Cloud微服务架构下我们主要可以使用ElasticSearch来存储两类信息：一类是通过Logstash收集的各个应用的日志，另一类是作为Zipkin的持久化存储。
+在Spring Cloud微服务架构下可以使用ElasticSearch来存储两类信息：一类是通过Logstash收集的各个应用的日志，另一类是作为Zipkin的持久化存储。
 
 ## Zipkin持久化
 
@@ -30,7 +30,7 @@ Zipkin本身支持采用ElasticSearch作为其存储引擎，它可以直接与E
  
 # 准备ELK环境
 
-为测试方便，我们使用Docker来运行ELK镜像，这里不直接使用ELK官方镜像。官方镜像各个组件是独立的，为了测试方便，我们使用集成了ELK三个组件的像。
+为测试方便，我们使用Docker来运行ELK镜像，这里不直接使用ELK官方镜像。官方镜像的E L K各个组件是独立的。为了测试方便，我们使用集成了ELK三个组件的像。
 
  1. 安装ELK镜像
  
@@ -80,7 +80,7 @@ rabbitmq:
 
 # ELK与Zipkin集成
 
-[上一篇]({filename}spring_cloud_tut9.md)文章中我们使用Zipkin进行调用链的跟踪。各个服务的调用信息通过RabbitMQ传递至Zipkin服务。默认情况下这些信息是保存在内存中的，并没有进行持久化。我们可以将ELK中的ElasticSearch来存储Zipkin服务接收的数据。
+[上一篇]({filename}spring_cloud_tut9.md)文章中使用Zipkin进行调用链的跟踪。各个服务的调用信息通过RabbitMQ传递至Zipkin服务。默认情况下这些信息是保存在内存中的，并没有进行持久化。我们可以将ELK中的ElasticSearch来存储Zipkin服务接收的数据。
 
 ## 添加依赖
 
