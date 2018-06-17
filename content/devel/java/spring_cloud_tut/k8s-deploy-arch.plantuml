@@ -1,0 +1,78 @@
+@startuml
+top to bottom direction
+actor User as user
+
+frame "Minikube Node" as minikubeNode {
+      interface "kube-proxy" as proxy
+
+      folder "Service Gateway" as gateway {
+             top to bottom direction
+             artifact "Pod0" as gateway0
+             artifact "Pod1" as gateway1
+      }
+            
+      artifact "Provider Pod" as provider
+      
+      artifact "Consumer Pod" as consumer
+
+      artifact "Zipkin Pod" as zipkin
+
+      folder "RabbitMQ Service" as rabbitmqService {
+            queue "RabbitMQ Pod" as rabbitmq
+      }
+
+      folder "ELK Service" as elkService{
+            cloud "ELK Pod" as elk
+      }
+
+      artifact "Config Pod" as config
+
+      folder "StatefulSet Registry" as registry {
+             top to bottom direction
+             artifact "Pod0:sc-registry-0" as registry0
+             artifact "Pod1:sc-registry-1" as registry1
+      }
+
+}
+
+user --> proxy
+proxy --> gateway
+proxy --> elkService: Kibana控制台
+proxy --> rabbitmqService: RabbitMQ控制台
+gateway0 --> zipkin: Zipkin控制台
+gateway1 --> zipkin: Zipkin控制台
+gateway0 --> consumer
+gateway1 --> consumer
+consumer --> provider
+
+gateway0 ~~> rabbitmq
+gateway1 ~~> rabbitmq
+provider ~~> rabbitmq
+consumer ~~> rabbitmq
+
+provider ..> elk: 仅provider保存日志至ELK
+rabbitmq ~~> zipkin: 调用链数据
+
+zipkin ..> elk : zipkin 数据存储
+
+gateway0 ~~> config
+gateway1 ~~> config
+provider ~~> config
+consumer ~~> config
+zipkin ~~> config
+
+gateway0 ~~> registry0
+gateway1 ~~> registry0
+provider ~~> registry0
+consumer ~~> registry0
+zipkin ~~> registry0
+
+
+gateway0 ~~> registry1
+gateway1 ~~> registry1
+provider ~~> registry1
+consumer ~~> registry1
+zipkin ~~> registry1
+
+
+@enduml
