@@ -1,0 +1,39 @@
+@startuml
+interface JtvMessage
+interface ServerSessionMessage
+interface ClientSessionMessage
+interface RoutableMessage
+
+class ScreenCaptureMessage
+class MouseEventMessage
+class KeyEventMessage
+class LoginRequest
+class LogoutRequest
+class ControlRequest
+class ControlResponse
+
+JtvMessage <|-- ServerSessionMessage
+JtvMessage <|-- ClientSessionMessage
+JtvMessage <|-- RoutableMessage
+
+RoutableMessage <|-- ScreenCaptureMessage
+ClientSessionMessage <|-- ScreenCaptureMessage
+
+RoutableMessage <|-- MouseEventMessage
+ClientSessionMessage <|-- MouseEventMessage
+
+RoutableMessage <|-- KeyEventMessage
+ClientSessionMessage <|-- KeyEventMessage
+
+ServerSessionMessage <|-- LoginRequest
+ClientSessionMessage <|-- LoginResponse
+
+ServerSessionMessage <|-- LogoutRequest
+
+ServerSessionMessage <|-- ControlRequest
+ClientSessionMessage <|-- ControlRequest
+
+ServerSessionMessage <|-- ControlResponse
+ClientSessionMessage <|-- ControlResponse
+
+@enduml

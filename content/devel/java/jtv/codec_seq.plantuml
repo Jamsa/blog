@@ -1,0 +1,15 @@
+@startuml
+boundary 网络
+entity JtvFrameDecode
+entity JtvFrameEncode
+entity JtvMessageDecode
+entity JtvMessageEncode
+collections 服务
+
+网络 -> JtvFrameDecode : 数据帧解码
+JtvFrameDecode -> JtvMessageDecode : 消息对象解码
+JtvMessageDecode -> 服务 : 逻辑处理
+服务 -> JtvMessageEncode : 对象发送
+JtvMessageEncode -> JtvFrameEncode : 消息对象编码
+JtvFrameEncode -> 网络 : 数据帧编码
+@enduml
