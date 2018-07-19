@@ -1,0 +1,16 @@
+@startuml
+class ServerSessionManager {
+  - Map[Int,ChannelId] sessions
+  - ChannelGroup sessionChannelGroup
+  - WeakHashMap[Int,ChannelGroup] workerChannelGroup
+  - Map[Channel,Channel] pairs
+  + createSession(channel:Channel):Int
+  + addWorkChannel(sessionId:Int,channel:Channel):Unit
+  + closeWorkChannel(sessionId:Int,channel:Channel):Unit
+  + destroySession(sessionId:Int):Unit
+  + getSessionChannel(sessionId:Int):Option[Channel]
+  + getWorkerChannel(sessionId:Int,channelId:String):Option[Channel]
+  + pairChannel(sourceChannel:Channel,targetChannel:Channel):Unit
+  + getPairChannel(channel:Channel):Option[Channel]
+}
+@enduml

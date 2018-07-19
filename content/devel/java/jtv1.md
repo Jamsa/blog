@@ -4,7 +4,7 @@ Modified: 2018-07-17
 Category: 开发
 Tags: scala, netty
 
-本文是[Jtv](http://jamsa.github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
+本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 
 # 起因
 
