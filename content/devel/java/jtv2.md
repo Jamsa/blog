@@ -2,7 +2,7 @@ Title: JTV开发笔记2-网络通讯
 Date: 2018-07-17
 Modified: 2018-07-18
 Category: 开发
-Tags: scala, netty
+Tags: scala, netty, jtv
 
 本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 

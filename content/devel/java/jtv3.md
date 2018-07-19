@@ -2,7 +2,7 @@ Title: JTV开发笔记3-服务端
 Date: 2018-07-19
 Modified: 2018-07-19
 Category: 开发
-Tags: scala, netty
+Tags: scala, netty, jtv
 
 本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 
@@ -22,9 +22,9 @@ Tags: scala, netty
  
  1. 管理会话及其连接：管理会话、会话连接、点对点工作连接。在连接中断时，自动从会话的工作连接中移除。如果中断的是会话连接，则应该关闭所有与这个会话相关联的连接，关闭与这个会话中任何一个连接建立的点对点连接。
  
-## 实现
+# 实现
 
-### 会话管理
+## 会话管理
 
 服务端的会话和连接由会话管理器`ServerSessionManager`进行管理，它的结构如下：
 
@@ -32,11 +32,11 @@ Tags: scala, netty
 
 主要属性：
 
- - sessions: 保存会话连接的Map，键为会话ID,值为ChannelId。
- - sessionChannelGroup: 保存所有会话连接的ChannelGroup。
- - workerChannelGroups: 保存会话相关连接的Map，键为会话ID,值为与此会话相关的连接（ChannelGroup，不含会话连接本身）
+ - `sessions`: 保存会话连接的`Map`，键为会话`ID`,值为`ChannelId`。
+ - `sessionChannelGroup`: 保存所有会话连接的`ChannelGroup`。
+ - `workerChannelGroups`: 保存会话相关连接的`Map`，键为会话`ID`,值为与此会话相关的连接（`ChannelGroup`，不含会话连接本身）
  
-#### 会话创建的过程：
+### 会话创建的过程：
 
 ```scala
   def createSession(channel:Channel): Int ={
@@ -67,9 +67,9 @@ Tags: scala, netty
   }
 ```
 
-会话连接创建时，不只是在相关的Map和ChannelGroup中保存本连接。通过在会话连接上添加`closeFuture`监听，在关闭事件产生时，可以关闭会话相关的连接，清理会话相关的Map和ChannelGroup。
+会话连接创建时，不只是在相关的`Map`和`ChannelGroup`中保存本连接。通过在会话连接上添加`closeFuture`监听，在关闭事件产生时，可以关闭会话相关的连接，清理会话相关的`Map`和`ChannelGroup`。
 
-#### 工作连接的创建
+### 工作连接的创建
 
 
 ```scala
@@ -97,7 +97,7 @@ Tags: scala, netty
 
 工作连接创建时，将被添加至对应的会话。在它被关闭时，需要从相关的会话中清除。如果它是点对点连接的一端，另一端的连接也应该被闭关。
 
-#### 会话销毁
+### 会话销毁
 
 ```scala
   def destroySession(sessionId:Int): Unit ={
@@ -113,9 +113,9 @@ Tags: scala, netty
 
 由于前面建立连接的时候，我们已经添加了关闭事件监听，在其中对相关的资源进行了清理。因此，在会话销毁时，我们就只需要关闭会话相关的连接就可以了。
 
-#### 点对点连接对
+### 点对点连接对
 
-连接对就只是一个简单的Map，它的key和value都是ChannelId。点对点连接对建立时，向Map中写入两条记录，以保证从连接的任一端都能找到另一端。
+连接对就只是一个简单的`Map`，它的`key`和`value`都是`ChannelId`。点对点连接对建立时，向`Map`中写入两条记录，以保证从连接的任一端都能找到另一端。
 
 ```scala
   def pairChannels(sourceChannel:Channel,targetChannel:Channel): Unit ={
@@ -124,9 +124,9 @@ Tags: scala, netty
   }
 ```
 
-### 服务端消息处理
+## 服务端消息处理
 
-[前一篇文章]({filename}jtv2.md)我们已经介绍过网络层的结构，在网络层已经处理好消息的编码、解码和数据的序列化。在编写服务端的Handler的时候，就比较简单了，只需要根据消息类型调用对应的处理逻辑。
+[前一篇文章]({filename}jtv2.md)我们已经介绍过网络层的结构，在网络层已经处理好消息的编码、解码和数据的序列化。在编写服务端的`Handler`的时候，就比较简单了，只需要根据消息类型调用对应的处理逻辑。
 
 ```scala
 class ServerHandler extends SimpleChannelInboundHandler[JtvMessage]{
