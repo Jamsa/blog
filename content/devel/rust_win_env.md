@@ -167,8 +167,6 @@ Caused by:
 
 ## 调试器
 
-可参照[这篇文章](https://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/)进行配置。我使用的时候报错误了，没有找到`rust`源码，应该是我没有设置`rust`源码目录的环境变量所致。
+可参照[这篇文章](https://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/)进行配置。只需要在`vscode`中安装`C/C++`和`Native Debug`这两个插件即可。
 
-`vscode`中使用的是`c/c++`调试器，不知道是否仍然需要安装完整的`vscode`才会包含相应的调试器。
-
-花了一天多折腾到当前这个状况，对于我个初学者已经够用了。
+![vscode 调试 rust 代码]]({attach}rust_win_env/rust_vscode_debug.png) 
