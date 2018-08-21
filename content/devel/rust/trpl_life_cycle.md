@@ -4,7 +4,7 @@ Modified: 2018-08-21
 Category: 开发
 Tags: rust
 
-本文是读《Rust程序设计语言第二版》生命周期相关内容的笔记。
+本文是读《Rust程序设计语言第二版》生命周期相关内容的笔记。阅读这本书所敲的代码放在[Github](https://github.com/Jamsa/trpl/blob/master/src/generic.rs)上。代码没有按书的结构分章节创建工程，而是将所有代码放在一个单独的工程中。
 
 # 生命周期
 
