@@ -28,7 +28,7 @@ $$\frac{\partial f(x_0,x_1, \ldots, x_n) }{\partial x_j} = \lim_{\Delta x \to 0}
 
 - 方向导数：
 
-层数和偏导数都是沿某轴的正方向变化。任意方向变化率就是方向层数。即：某一点在某一趋近方向上的层数值。
+导数和偏导数都是沿某轴的正方向变化。任意方向变化率就是方向导数。即：某一点在某一趋近方向上的导数值。
 
 $$\frac{\partial f(x_0,x_1, \ldots, x_n) }{\partial l } = \lim_{\rho x \to 0} \frac{\Delta y}{\Delta x} = \lim_{\rho x \to 0} \frac{f(x_0, \ldots, x_j + \Delta x, \ldots, x_n) - f(x_0, \ldots, x_j, \ldots, x_n)}{\rho}$$
 
