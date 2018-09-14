@@ -19,7 +19,6 @@ $ cd communicator
 
 在上面链接的示例中，我没有使用这种方式创建`mod`。因为敲的所有示例都在一个工程中，所以只需要添加`lib.rs`，`Cargo.toml`中也没有增加内容，只是添加了调用`lib.rs`的[uselib.rs](https://github.com/Jamsa/trpl/blob/master/src/uselib.rs)。
 
-
 ## 模块定义
 
 `Rust`默认只知道`lib.rs`中的内容，通过它来查找对应的`模块名.rs`。
