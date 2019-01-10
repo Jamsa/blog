@@ -196,11 +196,20 @@ values('demo_trigger','corp_2_store', 200, current_timestamp, current_timestamp)
 
 # 技巧
 
+ - `channel`表上的参数
+ 
+ `MAX_BATCH_SIZE`可控制通道上单个`batch`最大的`data event`的最大数量。
+ 
+ `MAX_BATCH_TO_SEND`可控制一次同步操作（一次pull或push）最多处理的`batch`数量。
+ 
+ `MAX_DATA_TO_ROUTE`一个`channel`上进行一次数据路由最大处理的行数量。
+
  - 初始数据加载
+ 
  官方文档的 [Initial Loads章节](https://www.symmetricds.org/doc/3.8/html/user-guide.html#_load_data) 和 [Load Data](https://www.symmetricds.org/doc/3.9/html/user-guide.html#_load_data)都对数据加载有描述。Initial Loads通过配置文件进行初始化加载的控制，可实现正/反向的数据初始加载，及初始加载batch大小的控制。Load Data可以通过向`SYM_TABLE_RELOAD_REQUEST`中插入数据来控制数据的批量加载。
  
- 
  - 问题分析和处理
+ 
  从运行时表结构结合[Outgoing Batches](https://www.symmetricds.org/doc/3.9/html/user-guide.html#_outgoing_batches)和[Incoming Batches](https://www.symmetricds.org/doc/3.9/html/user-guide.html#_incoming_batches)相关内容可用于分析处理同步错误。
  
  从`sym_incoming_batch`和`sym_incoming_error`表可以分析写入端的出错情况。
@@ -244,6 +253,23 @@ update sym_outgoing_batch set status='OK' where batch_id='XXXXXX'
 delete from sym_data_event where batch_id='XXXXXX' and data_id='YYYYYY'
  -- where XXXXXX is the failing batch and YYYYYY is the data id to longer be included in the batch.
 ```
+
+# 集群部署
+
+SymmetricDS支持集群模式部署。以集群模式部署的节点具备负载均衡和高可用功能。可以使用硬件负载均衡器或者反向代理软件。
+
+SymmetricDS 3.8及之后的版本，推荐将负载均衡器配置为会话粘连模式（sticky session），并且确保集群的所有节点共享`stage`目录。`Sticky session`用于支持预定请求，它可以让节点在在连接和推送数据前进行预定。共享`stage`目录用于在`intitial load`时支持后台取出数据，数据的取出操作在一个节点上进行，供集群的不同节点使用。如果`start.initial.load.extract.job`属性被设置为禁用，则可以不使用共享`stage`，但是`initial load`的性能会受影响。
+
+SymmetricDS 3.7及之前的版本，推荐将负载均衡器配置为无状态模式，采用`round robin`进行负载均衡。
+
+`sync.url`属性应该配置为负载均衡器的地址。
+
+只要集群运行任何类型的SymmetricDS job，`cluster.lock.enabled`应该设置为`true`。设置为`true`之后，SymmetricDS将使用`LOCK`表中的一行记录进行信号同步，确保每次只有一个job在运行。在获取锁时，`LOCK`表上的一行记录被更新为执行锁定的`server id`和锁定的时间。当job执行完毕后锁定时间被设置回`null`。在锁被释放前（这个server id相关的锁）另一个实例无法获取锁。如果锁定记录的实例当掉，锁会在一小段时间后被释放，这个时间可通过`cluster.lock.timeout.ms`属性进行配置。如果在job仍然运行的时候锁过期，可能出现两个job在同一时间运行的情况，并可能导致数据库死锁。
+
+默认情况下，锁的`server id`是服务所在的主机名。如果集群的两个实例运行在同一台服务器上，应该配置`cluster.server.id`属性，以区分它是`server id`中的哪个实例。（我理解为，同一个cluster的不同实例的server id应该是相同的）
+
+在把SymmetricDS部署在Tomcat或JBoss这类应用服务器上时，不需要为应用服务器配置特殊的会话集群（session clustering）。
  
 # 参考
+
 [基于SymmetricDS的多主一从数据库同步方案](https://my.oschina.net/chinatopcoder/blog/418914)
