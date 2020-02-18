@@ -11,6 +11,7 @@ PATH = 'content'
 STATIC_PATHS = ['devel','static','images','matplotlib_files']
 
 TIMEZONE = 'Asia/Shanghai'
+PRESERVE_CONTENT_HIERARCHY=True
 
 DEFAULT_LANG = u'zh'
 
