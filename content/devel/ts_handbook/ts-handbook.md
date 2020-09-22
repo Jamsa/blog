@@ -4,6 +4,8 @@ Modified: 2020-02-13
 Category: 开发
 Tags: typescript
 
+[toc]
+
 # 基础类型
 
 * 数字
