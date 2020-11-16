@@ -1,11 +1,11 @@
 ---
 title: "PlantUML的使用"
+draft: true
 date: 2018-06-22
 modified: 2018-06-22
 categories: ["开发"]
 tags: ["plantuml"]
 ---
-Status: draft
 
 # 简介
 
