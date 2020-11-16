@@ -1,0 +1,4 @@
+baseURL = "https://jamsa.github.io"
+languageCode = "zh-cn"
+title = "Jamsa的博客"
+theme = "ananke"

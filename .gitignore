@@ -1,7 +1,5 @@
-output
 .DS_Store
 *.pyc
-pelican-plugins/*
-pelican-themes/*
-srv.pid
-pelican.pid
+themes
+resources/_gen/*
+public
