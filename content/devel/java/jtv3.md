@@ -1,8 +1,10 @@
-Title: JTV开发笔记3-服务端
-Date: 2018-07-19
-Modified: 2018-07-19
-Category: 开发
-Tags: scala, netty, jtv
+---
+title: "JTV开发笔记3-服务端"
+date: 2018-07-19
+modified: 2018-07-19
+categories: ["开发"]
+tags: ["scala"," netty"," jtv"]
+---
 
 本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 
@@ -28,7 +30,7 @@ Tags: scala, netty, jtv
 
 服务端的会话和连接由会话管理器`ServerSessionManager`进行管理，它的结构如下：
 
-![ServerSessionManager]({attach}jtv/server_session_mgr_uml.png)
+![ServerSessionManager](../jtv/server_session_mgr_uml.png)
 
 主要属性：
 
@@ -126,7 +128,7 @@ Tags: scala, netty, jtv
 
 ## 服务端消息处理
 
-[前一篇文章]({filename}jtv2.md)我们已经介绍过网络层的结构，在网络层已经处理好消息的编码、解码和数据的序列化。在编写服务端的`Handler`的时候，就比较简单了，只需要根据消息类型调用对应的处理逻辑。
+[前一篇文章](../jtv2/)我们已经介绍过网络层的结构，在网络层已经处理好消息的编码、解码和数据的序列化。在编写服务端的`Handler`的时候，就比较简单了，只需要根据消息类型调用对应的处理逻辑。
 
 ```scala
 class ServerHandler extends SimpleChannelInboundHandler[JtvMessage]{

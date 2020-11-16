@@ -1,8 +1,10 @@
-Title: gawk笔记
-Date: 2007-06-19
-Modified: 2007-06-19
-Category: 效率
-Tags: awk,linux
+---
+title: "gawk笔记"
+date: 2007-06-19
+modified: 2007-06-19
+categories: ["效率"]
+tags: ["awk","linux"]
+---
 
 # I.简介
 gawk的主要功能是针对档案的第一行搜寻指令的patterns。当一行里有符合指定的patterns，gawk就会在此行执行指定的actions。gawk依此方式处理输入档案的每一行直到输入档案结束。

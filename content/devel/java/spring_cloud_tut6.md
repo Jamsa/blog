@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手6-负载均衡
-Date: 2018-06-05
-Modified: 2018-06-05
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手6-负载均衡"
+date: 2018-06-05
+modified: 2018-06-05
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第六篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -42,13 +44,13 @@ java -jar consumer/service/build/libs/sc-consumer-service-0.0.1.jar
 
 启动完上述服务后，访问`http://localhost:9001`，可以看到`sc-provider`应用有两个服务节点，分别运行在`9010`和`9012`上：
 
-![Ribbon负载均衡]({attach}spring_cloud_tut/ribbon.png)
+![Ribbon负载均衡](../spring_cloud_tut/ribbon.png)
 
 使用浏览器访问`http://localhost:9011/consumer/hello?name=Jamsa`，多次刷新或从不同浏览器访问，从provider1和provider2的控制台中可以看到两个应用都被调用到了。
 
 # 在RestTemplate 上使用负载均衡
 
-在[第四篇]({filename}spring_cloud_tut4.md)的最后一节，我们已经提到过在`RestTemplate`上使用`@LoadBalanced`可以使用以服务名为基础拼接的URL来调用Eureka上注册的服务。这种调用方式就是以Ribbon为基础的负载均衡调用。此处，不再缀述。
+在[第四篇](../spring_cloud_tut4/)的最后一节，我们已经提到过在`RestTemplate`上使用`@LoadBalanced`可以使用以服务名为基础拼接的URL来调用Eureka上注册的服务。这种调用方式就是以Ribbon为基础的负载均衡调用。此处，不再缀述。
 
 
 

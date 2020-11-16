@@ -1,8 +1,10 @@
-Title: Ext JS 5 手册 核心概念（一）可访问性
-Date: 2015-05-17
-Modified: 2015-05-17
-Category: 前端
-Tags: javascript,extjs
+---
+title: "Ext JS 5 手册 核心概念（一）可访问性"
+date: 2015-05-17
+modified: 2015-05-17
+categories: ["前端"]
+tags: ["javascript","extjs"]
+---
 
 # Ext JS 5 手册 核心概念（一）可访问性
 

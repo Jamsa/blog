@@ -1,8 +1,10 @@
-Title: Learning Sklearn笔记（四）
-Date: 2018-01-05
-Modified: 2018-01-05
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Learning Sklearn笔记（四）"
+date: 2018-01-05
+modified: 2018-01-05
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 # Chap4 特征处理
 
@@ -231,7 +233,7 @@ pl.show()
 
 
 
-![png]({attach}learning_sklearn/chap4_files/chap4_17_1.png)
+![png](../learning_sklearn/chap4_files/chap4_17_1.png)
 
 
 可以看到在开始阶段添加特征时精度快速提升，到超过6之后出现波动。我们可以观察它是否在测试集上能提升性能。
@@ -414,7 +416,7 @@ train_scores,test_scores = calc_params(X_train,y_train,clf,alphas,'nb__alpha',3)
 
 
 
-![png]({attach}learning_sklearn/chap4_files/chap4_33_1.png)
+![png](../learning_sklearn/chap4_files/chap4_33_1.png)
 
 
 可以看到与我们预计的情况一样，训练集上的精度总是大于测试集上的精度。我们可以看到上图中最高的测试集精度的alpha值在 $10^{-2}$ 和 $10^{-1}$ 之间。在这个区间分类器显示出过拟合（训练集精度高但测试集精度低）。在这个区间之上，分类器则欠拟合（训练集精度过低）。
@@ -462,7 +464,7 @@ train_scores,test_scores = calc_params(X_train,y_train,clf,gammas,'svc__gamma',3
 
 
 
-![png]({attach}learning_sklearn/chap4_files/chap4_37_1.png)
+![png](../learning_sklearn/chap4_files/chap4_37_1.png)
 
 
 最佳的gamma值是1，这个参数得到的训练集精度是0.999测试集上的精度是0.760。

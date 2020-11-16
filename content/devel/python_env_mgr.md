@@ -1,8 +1,10 @@
-Title: Python虚拟环境管理
-Date: 2018-05-12
-Modified: 2018-05-12
-Category: 开发
-Tags: python
+---
+title: "Python虚拟环境管理"
+date: 2018-05-12
+modified: 2018-05-12
+categories: ["开发"]
+tags: ["python"]
+---
 
 Python虚拟环境的管理工具有很多种，我常用的有pyenv、virtualenv和conda。最近因为折腾深度学习环境经常需要安装不同版本的keras、tensorflow、pytorch等，折腾下来后总结下他们的区别。
 

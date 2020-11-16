@@ -1,8 +1,10 @@
-Title: Emacs Lisp参考手册
-Date: 2009-12-31
-Modified: 2009-12-31
-Category: 效率
-Tags: emacs
+---
+title: "Emacs Lisp参考手册"
+date: 2009-12-31
+modified: 2009-12-31
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 # 介绍
 介绍和约定

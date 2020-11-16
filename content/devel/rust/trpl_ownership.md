@@ -1,8 +1,10 @@
-Title: Rust所有权系统
-Date: 2018-08-21
-Modified: 2018-08-21
-Category: 开发
-Tags: rust
+---
+title: "Rust所有权系统"
+date: 2018-08-21
+modified: 2018-08-21
+categories: ["开发"]
+tags: ["rust"]
+---
 
 本文是读《Rust程序设计语言第二版》所有权相关内容的笔记。阅读这本书所敲的代码放在[Github](https://github.com/Jamsa/trpl/blob/master/src/ownership.rs)上。代码没有按书的结构分章节创建工程，而是将所有代码放在一个单独的工程中。
 
@@ -43,7 +45,7 @@ let s2 = s1;
 
 字符串变量`s1`由一个指向存放字符串内容的指针、字符串长度、字符串容量三部分组成。当把`s1`赋给`s2`时，会复制指针、长度、容量，但并不会复制指针所指向的数据（值）。
 
-![String]({attach}trpl/trpl_ownership_string.png)
+![String](../trpl/trpl_ownership_string.png)
 
 这样一来，`s1`和s2`就都指向了同一块内存区域。前面提到过当变量离开作用域时，会自动调用`drop`释放内存。如果`s1`和`s2`都释放，会导致同一块内存被释放两次，产生`二次释放`问题，产生内存污染和安全漏洞。
 
@@ -58,7 +60,7 @@ println!("{}, world!", s1);
 
 因为`s1`赋给`s2`之后，相当于`s1`被移动到了`s2`，因此`s1`不再有效。
 
-![移动]({attach}trpl/trpl_ownership_move.png)
+![移动](../trpl/trpl_ownership_move.png)
 
 
 ### 交互方式二：克隆
@@ -115,7 +117,7 @@ fn calculate_length(s: &String) -> usize {
 
 `&`符号就是引用，它允许你使用值，但是并不获取其所有权。`s`引用指向变量`s1`，但并不取得`s1`的指针（`s1`包括指向数据的指针、容量、长度）所指向的数据（值）的所有权。当引用离开作用域时，其指向的值不会被丢弃。
 
-![引用]({attach}trpl/trpl_ownership_ref.png)
+![引用](../trpl/trpl_ownership_ref.png)
 
 与使用`&`相对应的操作是解引用，解引用运算符为`*`。
 
@@ -179,7 +181,7 @@ error[E0106]: missing lifetime specifier
   = help: consider giving it a 'static lifetime
 ```
 
-错误信息与[生命周期]({filename}trpl_life_cycle.md)有关。
+错误信息与[生命周期](../trpl_life_cycle/)有关。
 
 因为`s`是在`dangle`函数内创建的，当`dangle`的代码执行完毕后，`s`将被释放，当试图返回它的引用时，Rust能检测出这种错误。
 
@@ -216,7 +218,7 @@ let world = &s[6..11];
 
 其内存结构如下：
 
-![Slice]({attach}trpl/trpl_ownership_slice.png)
+![Slice](../trpl/trpl_ownership_slice.png)
 
 字符串`slice`的类型声明写作`&str`。
 

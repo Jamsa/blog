@@ -1,8 +1,10 @@
-Title: Ext学习笔记
-Date: 2008-03-19
-Modified: 2008-03-19
-Category: 前端
-Tags: extjs,javascript
+---
+title: "Ext学习笔记"
+date: 2008-03-19
+modified: 2008-03-19
+categories: ["前端"]
+tags: ["extjs","javascript"]
+---
 
 # 基础
 

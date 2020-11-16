@@ -1,8 +1,10 @@
-Title: Xah的Emacs Lisp 教程学习笔记
-Date: 2008-03-10
-Modified: 2008-03-10
-Category: 效率
-Tags: emacs
+---
+title: "Xah的Emacs Lisp 教程学习笔记"
+date: 2008-03-10
+modified: 2008-03-10
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 # 例子
 ```emacs-lisp

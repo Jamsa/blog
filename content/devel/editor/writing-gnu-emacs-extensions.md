@@ -1,8 +1,10 @@
-Title: Writing GNU Emacs Extensions笔记
-Date: 2010-12-07
-Modified: 2010-12-07
-Category: 效率
-Tags: emacs
+---
+title: "Writing GNU Emacs Extensions笔记"
+date: 2010-12-07
+modified: 2010-12-07
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 # 定制Emacs
 

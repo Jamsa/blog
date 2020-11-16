@@ -1,8 +1,10 @@
-Title: Python 编码规则
-Date: 2007-06-19
-Modified: 2007-06-19
-Category: 开发
-Tags: python
+---
+title: "Python 编码规则"
+date: 2007-06-19
+modified: 2007-06-19
+categories: ["开发"]
+tags: ["python"]
+---
 
 1. 呆板的坚持使用一致性是傻得没边！(A Foolish Consistency is the Hobgoblin of Little Minds)
 

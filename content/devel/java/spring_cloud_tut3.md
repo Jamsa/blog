@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手3-服务提供者
-Date: 2018-05-30
-Modified: 2018-05-30
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手3-服务提供者"
+date: 2018-05-30
+modified: 2018-05-30
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第三篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -10,7 +12,7 @@ Tags: spring cloud
 
 对于微服务间是否需要进行代码共享，大家都有不同的看法。
 
-虽然，实际的生产应用中，我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。但是，在[下一篇]({filename}spring_cloud_tut4.md)讲服务消费的时候将使用几种不同的方式来调用服务。在本系列文章的其它地方，为减少代码量，我们主要使用了api模块在服务提供方和消费方间进行代码共享。
+虽然，实际的生产应用中，我个人是倾向于不共享代码的。这样可以避免代码上的强依赖，加快服务构建的速度。但是，在[下一篇](../spring_cloud_tut4/)讲服务消费的时候将使用几种不同的方式来调用服务。在本系列文章的其它地方，为减少代码量，我们主要使用了api模块在服务提供方和消费方间进行代码共享。
 
 Philipp Hauer的两篇文章可供参考
 
@@ -22,7 +24,7 @@ Philipp Hauer的两篇文章可供参考
 
 我们在`provider`中创建一个服务，启动`provider-service`应用后，将在`Eureka`注册中心中看到它。
 
-在[第一篇文章]({filename}spring_cloud_tut1.md)提到过，`provider`只起目录分类作用，不是实际工程，实际工程是它下面的两个子模块`api`和`service`其中`api`提供客户端调用的接口，供后面使用`Feign`使用，`service`是一个Spring Boot应用，提供实际的服务。
+在[第一篇文章](../spring_cloud_tut1/)提到过，`provider`只起目录分类作用，不是实际工程，实际工程是它下面的两个子模块`api`和`service`其中`api`提供客户端调用的接口，供后面使用`Feign`使用，`service`是一个Spring Boot应用，提供实际的服务。
 
 ## 配置模块依赖
 
@@ -104,7 +106,7 @@ eureka:
 
 就能在`http://localhost:9001`查看到`SC_PROVIDER`服务的注册信息了。
 
-![Eureka服务注册中心]({attach}spring_cloud_tut/eureka2.png)
+![Eureka服务注册中心](../spring_cloud_tut/eureka2.png)
 
 访问`http://localhost:9010/provider/hello?name=Jamsa`能直接访问到该服务。
 

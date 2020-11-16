@@ -1,8 +1,10 @@
-Title: SymmetricDS 配置笔记
-Date: 2019-01-09
-Modified: 2019-01-09
-Category: 开发
-Tags: 数据同步
+---
+title: "SymmetricDS 配置笔记"
+date: 2019-01-09
+modified: 2019-01-09
+categories: ["开发"]
+tags: ["数据同步"]
+---
 
 # 介绍
 

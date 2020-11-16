@@ -1,8 +1,10 @@
-Title: OA Framework状态管理
-Date: 2008-07-25
-Modified: 2008-07-25
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework状态管理"
+date: 2008-07-25
+modified: 2008-07-25
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 
 # 概述
 这个文档用于描述OA Framework状态管理架构，包括缓存应用系统用户数据和从页面间值传递的机制。
@@ -10,7 +12,7 @@ Tags: oracle,ebs,oaf
 # 结构预览
 主要状态管理组：
 
-![state_architecture]({attach}oaf_state/state_architecture.gif)
+![state_architecture](../oaf_state/state_architecture.gif)
 
 # 根应用模块（数据库会话和事务状态）
 如[OA Framework 页面解析](/page.html)一文中描述的，每个OA Framework页面与一个根应用模块关联，根应用模块提供事务环境和JDBC数据库连接。
@@ -28,7 +30,7 @@ Tags: oracle,ebs,oaf
 
 导航到新的页面时，缺省情况下的原页面的根应用模块将被释放：
 
-![root_am_default]({attach}oaf_state/root_am_default.gif)
+![root_am_default](../oaf_state/root_am_default.gif)
 
 **注意：** OA Framework在表单提交（POST）期间不会释放应用模块，除非你显式的在控制器中释放应用模块。比如，如果用户对表格中的数据排序或在表格数据中导航——两个动作隐式的提交了页面表单——页面的根应用模块实例被自动保留。
 
@@ -38,7 +40,7 @@ Tags: oracle,ebs,oaf
 
 相关页面共同同一个根应用模块（和事务）：
 
-![root_am_retain]({attach}oaf_state/root_am_retain.gif)
+![root_am_retain](../oaf_state/root_am_retain.gif)
 
 为达到这个目的，必须执行下面的操作：
 
@@ -54,7 +56,7 @@ Tags: oracle,ebs,oaf
 
 两个页面引用相同类型的应用模块，但没有设置Retain AM标记：
 
-![root_am_noretainproblem]({attach}oaf_state/root_am_noretainproblem.gif)
+![root_am_noretainproblem](../oaf_state/root_am_noretainproblem.gif)
 
 同样，将retainAM标记设置为“Y“——但没有将页面的根应用模块设置为相同的类型。这将产生不同的应用模块实例（每个页面一个），各自有自己的事务。
 
@@ -120,7 +122,7 @@ web应用的工作单元是一个请求／响应对：浏览器提交一个请�
 
 请求和页面边界相同：
 
-![boundary_case1]({attach}oaf_state/boundary_case1.gif)
+![boundary_case1](../oaf_state/boundary_case1.gif)
 
 有些情况下，请求和页面边界是不相同的。比如下面的JSP Forward情况：
 
@@ -134,7 +136,7 @@ web应用的工作单元是一个请求／响应对：浏览器提交一个请�
 
 在JSP Forward情况下，请求界面和页面界面不同：
 
-![boundary_case2]({attach}oaf_state/boundary_case2.gif)
+![boundary_case2](../oaf_state/boundary_case2.gif)
 
 明确这个区别是很重要的：
 
@@ -214,4 +216,4 @@ OA Framework当前提供了下面的状态管理功能。
 
 应用模块池：
 
-![am_pool]({attach}oaf_state/am_pool.gif)
+![am_pool](../oaf_state/am_pool.gif)

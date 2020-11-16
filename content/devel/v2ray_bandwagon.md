@@ -1,8 +1,10 @@
-Title: 将科学上网工具从ss切换到了v2ray
-Date: 2018-09-11
-Modified: 2018-09-11
-Category: 效率
-Tags: 
+---
+title: "将科学上网工具从ss切换到了v2ray"
+date: 2018-09-11
+modified: 2018-09-11
+categories: ["效率"]
+tags: [""]
+---
 
 昨天使用ss的时候发现bandwagon上做ss服务的vps IP又被墙了，这是最近几个月来第二次被墙了。
 

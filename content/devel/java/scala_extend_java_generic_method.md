@@ -1,12 +1,14 @@
-Title: Scala继承Java泛型方法的问题
-Date: 2018-07-23
-Modified: 2018-07-23
-Category: 开发
-Tags: scala, jtv
+---
+title: "Scala继承Java泛型方法的问题"
+date: 2018-07-23
+modified: 2018-07-23
+categories: ["开发"]
+tags: ["scala"," jtv"]
+---
 
 # 问题
 
-在使用Scala实现[JTV]({filename}jtv4.md)客户端界面程序时，我遇到了Scala重载Java类中的泛型方法的问题。
+在使用Scala实现[JTV](../jtv4/)客户端界面程序时，我遇到了Scala重载Java类中的泛型方法的问题。
 
 因为界面上的`JList`使用了自定义的元素类型，我需要自定义`ListCellRender`来列表对象中元素行的显示。最简单的方法就是直接继承`DefaultListCellRenderer`，它会将`JList`中的数据元素渲染为`JLabel`，我只需要覆盖其`getListCellRendererComponent`实现元素转`JLabel`的逻辑即可。
 

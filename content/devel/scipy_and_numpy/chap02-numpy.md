@@ -1,8 +1,10 @@
-Title: Numpy And Scipy笔记（一）
-Date: 2017-3-20
-Modified: 2017-03-20
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Numpy And Scipy笔记（一）"
+date: 2017-3-20
+modified: 2017-03-20
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 # NumPy
 

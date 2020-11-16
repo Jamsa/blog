@@ -1,8 +1,10 @@
-Title: 实现服务端功能之——Java实体对象
-Date: 2007-09-02
-Modified: 2007-09-02
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "实现服务端功能之——Java实体对象"
+date: 2007-09-02
+modified: 2007-09-02
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: bus_java
 
 # 关于实体对象
@@ -332,7 +334,7 @@ private void checkLineExists()
 这节描述如何正确执行属性级和实体级的校验。
 
 ## 属性级校验
-如[实现视图]({filename}build_view.md)一章中描述的，当向页面发起HTTP POST请求时修改的值时，OA Framework将这些值回写到下层的视图对象，再通过调用实体对象的setter方法将这些值写入下层的实体对象。
+如[实现视图](../build_view/)一章中描述的，当向页面发起HTTP POST请求时修改的值时，OA Framework将这些值回写到下层的视图对象，再通过调用实体对象的setter方法将这些值写入下层的实体对象。
 
 因此每个属性的校验应该被添加到它的setter方法中（查看ToolBox的PurchaseOrderHeaderEOImpl的setHeaderId()方法，如下），调用实体对象的setter方法执行的是属性级的校验。
 

@@ -1,8 +1,10 @@
-Title: Ext JS 5 手册 核心概念（四）数据包
-Date: 2015-05-17
-Modified: 2015-05-17
-Category: 前端
-Tags: javascript,extjs
+---
+title: "Ext JS 5 手册 核心概念（四）数据包"
+date: 2015-05-17
+modified: 2015-05-17
+categories: ["前端"]
+tags: ["javascript","extjs"]
+---
 
 # Ext JS 5 手册 核心概念（四）数据包
 
@@ -15,7 +17,7 @@ Tags: javascript,extjs
 
 上面的类几乎在所有应用中都被用到。它们由一些卫星类支撑：
 
-![数据包相关类]({attach}extjs5_guide/data-model.png)
+![数据包相关类](../extjs5_guide/data-model.png)
 
 #### Model
 类所包的中心是`Ext.data.Model`。`Model`用于描述应用中一个实体。
@@ -25,7 +27,7 @@ Model中的主要部分有：
  - Validations
  - Associations
 
-![Model 的主要组成部分]({attach}extjs5_guide/model-breakdown.png)
+![Model 的主要组成部分](../extjs5_guide/model-breakdown.png)
 
 ##### 创建 Model
 通常可以定义一个公用的基础类。这个基类能定义所有 Model 公用的属性。

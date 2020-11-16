@@ -1,8 +1,10 @@
-Title: OA Framework应用构建之——实现视图
-Date: 2008-07-08
-Modified: 2008-07-08
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework应用构建之——实现视图"
+date: 2008-07-08
+modified: 2008-07-08
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: build_view
 
 # 页面
@@ -264,7 +266,7 @@ OA Framework每次渲染页面时，它将为每个web bean关联的视图对象
 
 OA Framework在执行查询后读取模型数据：
 
-![read_data_flow]({attach}oaf_build_view/read_data_flow.gif)
+![read_data_flow](../oaf_build_view/read_data_flow.gif)
 
  1. 用户选择“Search“区域中的“Go“按钮查询”Suppliers“表。
 
@@ -285,7 +287,7 @@ OA Framework在执行查询后读取模型数据：
 
 HTTP POST数据过程：
 
-![write_data_flow]({attach}oaf_build_view/write_data_flow.gif)
+![write_data_flow](../oaf_build_view/write_data_flow.gif)
 
 **注意：** 下面的步骤假设数据库行所对应的实体对象已经被实例化和初始化（比如在进入Create页面时已经调用了视图对象的create方法创建实体对象）。
 
@@ -387,7 +389,7 @@ public void EmployeesVOImpl extends OAViewObjectImpl
 
 OA Framework ToolBox 教程的菜单：
 
-![toolbox_menu]({attach}oaf_build_view/toolbox_menu.gif)
+![toolbox_menu](../oaf_build_view/toolbox_menu.gif)
 
 菜单结构提供了两个明显的用途：
 

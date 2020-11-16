@@ -44,7 +44,8 @@ def convert_file(file):
     for line in lines:
         result.append(convert_line(line))
     f.close()
-    nfile = re.sub(r"\.md", "_hugo.md", file)
+    #nfile = re.sub(r"\.md", "_hugo.md", file)
+    nfile = re.sub(r"\.md", ".md", file)
     print("Write file: %s" % (nfile))
     nf = open(nfile, "w", encoding="utf-8")
     nf.writelines(result)

@@ -1,8 +1,10 @@
-Title: Numpy的使用
-Date: 2018-2-21
-Modified: 2018-02-21
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Numpy的使用"
+date: 2018-2-21
+modified: 2018-02-21
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 
 ```python

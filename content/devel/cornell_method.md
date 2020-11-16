@@ -1,8 +1,10 @@
-Title: 记笔记的方法
-Date: 2010-09-19
-Modified: 2010-09-17
-Category: 方法
-Tags: cornel
+---
+title: "记笔记的方法"
+date: 2010-09-19
+modified: 2010-09-17
+categories: ["方法"]
+tags: ["cornel"]
+---
 
 所有笔记记法都有优缺点。当你自己已经熟悉这些种技法时，你会发现自己其实也在做同样的事情。这是因为在不同的演讲和会议上，你会自动地意识到究竟哪一种方法才是记下笔记的最佳途径。
 
@@ -44,7 +46,7 @@ Tags: cornel
 
 教师模拟，自我讲解。
 
-![学习方法]({attach}cornell_method/cornell_method.jpg)
+![学习方法](../cornell_method/cornell_method.jpg)
 
 
 # 文学作用的笔记方法

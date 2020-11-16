@@ -1,8 +1,10 @@
-Title: 高级OA Framework开发主题——支持浏览后退按钮的用例
-Date: 2008-07-04
-Modified: 2008-07-04
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "高级OA Framework开发主题——支持浏览后退按钮的用例"
+date: 2008-07-04
+modified: 2008-07-04
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: adv_back_use_cases
 
 # 概述
@@ -10,7 +12,7 @@ Slug: adv_back_use_cases
 
 ## 需要阅读
 
-[Supporting the Browser Back Button - Target Goals]({filename}adv_backbutton.md#goals)
+[Supporting the Browser Back Button - Target Goals](../adv_backbutton/#goals)
 
 # 一般规则
 

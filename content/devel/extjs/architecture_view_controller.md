@@ -1,8 +1,10 @@
-Title: Ext JS5 手册 应用程序架构（二） View Controller
-Date: 2015-05-17
-Modified: 2015-05-17
-Category: 前端
-Tags: javascript,extjs
+---
+title: "Ext JS5 手册 应用程序架构（二） View Controller"
+date: 2015-05-17
+modified: 2015-05-17
+categories: ["前端"]
+tags: ["javascript","extjs"]
+---
 
 ## Ext JS5 手册 应用程序架构（二） View Controller
 ##### 监听

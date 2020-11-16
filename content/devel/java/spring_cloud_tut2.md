@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手2-服务注册
-Date: 2018-05-30
-Modified: 2018-05-30
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手2-服务注册"
+date: 2018-05-30
+modified: 2018-05-30
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第二篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -16,7 +18,7 @@ Spring Cloud Eureka是Spring Cloud Netflix项目提供的服务治理模块。Sp
 
 # 构建Eureka服务注册中心
 
-根据[前一篇文章]({filename}spring_cloud_tut1.md)的规划，我们将在`registry`工程中构建服务注册中心。
+根据[前一篇文章](../spring_cloud_tut1/)的规划，我们将在`registry`工程中构建服务注册中心。
 
 ## 依赖配置
 
@@ -100,5 +102,5 @@ eureka:
 
 就能在`http://localhost:9001`查看到服务注册信息了，当然现在还没有服务注册。
 
-![Eureka服务注册中心]({attach}spring_cloud_tut/eureka1.png)
+![Eureka服务注册中心](../spring_cloud_tut/eureka1.png)
 

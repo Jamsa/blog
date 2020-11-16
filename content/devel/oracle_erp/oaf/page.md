@@ -1,8 +1,10 @@
-Title: OA Framework Page解析
-Date: 2010-07-27
-Modified: 2010-07-27
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework Page解析"
+date: 2010-07-27
+modified: 2010-07-27
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 
 # Page基础
 在浏览器看来，OA Framework页面与其它web页面一样，被渲染为HTML。
@@ -15,7 +17,7 @@ Tags: oracle,ebs,oaf
 
 OA Framework MVC架构：
 
-![anatomy]({attach}oaf_page/anatomy.gif)
+![anatomy](../oaf_page/anatomy.gif)
 
 # 模型Model
 模型包括下层的数据和应用业务逻辑。它也提花了现实世界对象和应用服务间的抽像层。
@@ -25,7 +27,7 @@ BC4j应用模块本质上是一个容器，它管理和提供对“相关“BC4J
 
 应用模块：
 
-![ess_model_arch_am]({attach}oaf_page/ess_model_arch_am.gif)
+![ess_model_arch_am](../oaf_page/ess_model_arch_am.gif)
 
 应用模块是oracle.apps.fnd.framework.server.OAApplicationModuleImpl类的子类。
 
@@ -46,7 +48,7 @@ OA Framework支持Java和PL/SQL实体。
 
 实体对象：
 
-![ess_model_arch_eo]({attach}oaf_page/ess_model_arch_eo.gif)
+![ess_model_arch_eo](../oaf_page/ess_model_arch_eo.gif)
 
 多数实体是oracle.aps.fnd.framework.server.OAEntityImpl的子类（PL/SQL继承于特殊版本的OAEntityImpl）。
 
@@ -63,7 +65,7 @@ BC4J视图对象处理数据库查询。查询执行后，视图对象提供了�
 
 视图对象：
 
-![ess_model_arch_vo]({attach}oaf_page/ess_model_arch_vo.gif)
+![ess_model_arch_vo](../oaf_page/ess_model_arch_vo.gif)
 
 所有的视图对象都是oracle.apps.fnd.framework.server.OAViewObjectImpl类的子类。
 
@@ -93,7 +95,7 @@ BC4J视图对象处理数据库查询。查询执行后，视图对象提供了�
 
 OADBTransaction：
 
-![ess_model_arch_tran]({attach}oaf_page/ess_model_arch_tran.gif)
+![ess_model_arch_tran](../oaf_page/ess_model_arch_tran.gif)
 
 **注意：** 准备的来说这个图应该要包含实现类oracle.apps.fnd.framework.server.OADBTransactionImpl替代oracle.apps.fnd.framework.OADBTransaction接口。
 
@@ -202,7 +204,7 @@ OADBTransaction：
 ## OAPageContext
 当OA Framework收到一个OA.jsp请求时，OAPageBean创建一个oracle.apps.fnd.framework.webui.OAPageContext，这个类仅在页面处理过程中存在。上面描述的三个方法（processRequest()，processFormData()，processFormRequest()）都有一个OAPageContext参数，任何将要编写的控制器代码都使用了这个至关重要的类。
 
-![pagecontext_arch]({attach}oaf_page/pagecontext_arch.gif)
+![pagecontext_arch](../oaf_page/pagecontext_arch.gif)
 
 如上图所描述的，OAPageContext有指向request和根应用模块的引用。根据这个关系，OAPageContext被传递到每个控制器的响应处理方法中，你将看到如何在下面的通用任务中使用OAPageContext：
 
@@ -275,7 +277,7 @@ processRequest(OAPageContext pageContext, OAWebBean webBean){
 
 web bean例子（OATableBean）：
 
-![bean_arch]({attach}oaf_page/bean_arch.gif)
+![bean_arch](../oaf_page/bean_arch.gif)
 
 **内部Bean结构**
 
@@ -289,7 +291,7 @@ web bean例子（OATableBean）：
 
 描述web bean使用Dictionary保存键值对属性：
 
-![bean_internals_attr]({attach}oaf_page/bean_internals_attr.gif)
+![bean_internals_attr](../oaf_page/bean_internals_attr.gif)
 
 **数据绑定值**
 

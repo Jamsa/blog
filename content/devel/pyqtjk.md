@@ -1,8 +1,10 @@
-Title: 使用PyQT开发巡更系统的总结
-Date: 2016-04-16
-Modified: 2017-01-16
-Category: 开发
-Tags: python,pyqt
+---
+title: "使用PyQT开发巡更系统的总结"
+date: 2016-04-16
+modified: 2017-01-16
+categories: ["开发"]
+tags: ["python","pyqt"]
+---
 
 # PyQT的内存管理模型：
 

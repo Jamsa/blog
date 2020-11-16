@@ -1,8 +1,10 @@
-Title: JBoss Seam 学习笔记
-Date: 2009-01-15
-Modified: 2009-01-15
-Category: 开发
-Tags: seam,jsf
+---
+title: "JBoss Seam 学习笔记"
+date: 2009-01-15
+modified: 2009-01-15
+categories: ["开发"]
+tags: ["seam","jsf"]
+---
 
 #  JBoss Seam介绍
 Seam是一个for Java EE5的应用框架。它是从下面的规则得到灵感的：

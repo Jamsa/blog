@@ -1,8 +1,10 @@
-Title: 测试页
-Date: 2016-04-25
-Modified: 2016-04-25
-Category: 测试页
-Tags: test
+---
+title: "测试页"
+date: 2016-04-25
+modified: 2016-04-25
+categories: ["测试页"]
+tags: ["test"]
+---
 S_lug: URL中该文章的链接地址
 Author: 作者
 
@@ -58,5 +60,5 @@ Content Cell  | Content Cell
 </table>
 
 # 链接
-aa [a link relative to the current file]({filename}about.md) bb
+aa [a link relative to the current file](../about/) bb
 

@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手12-容器化
-Date: 2018-06-15
-Modified: 2018-06-15
-Category: 开发
-Tags: spring cloud, kubernetes, docker
+---
+title: "Spring Cloud 上手12-容器化"
+date: 2018-06-15
+modified: 2018-06-15
+categories: ["开发"]
+tags: ["spring cloud"," kubernetes"," docker"]
+---
 
 ```重要提示：本篇文章的目标在Edgware.SR3上并未成功```
 
@@ -39,7 +41,7 @@ Tags: spring cloud, kubernetes, docker
 
 总体部署架构如下：
 
-![容器化-k8s-deploy-arch]({attach}spring_cloud_tut/k8s-deploy-arch.png)
+![容器化-k8s-deploy-arch](../spring_cloud_tut/k8s-deploy-arch.png)
 
 Kubernetes暴露的Service主要有3个：
 
@@ -82,7 +84,7 @@ docker build -t jamsa/sc-consumer ../../consumer/service
 
 在该目录下执行这个脚本，构建所有镜像。
 
-![容器化-k8s-build-image]({attach}spring_cloud_tut/k8s-build-image.png)
+![容器化-k8s-build-image](../spring_cloud_tut/k8s-build-image.png)
 
 # 部署
 
@@ -136,13 +138,13 @@ spec:
 
 用`kubectl create`来让配置生效：
 
-![容器化-k8s-deploy-registry]({attach}spring_cloud_tut/k8s-deploy-registry.png)
+![容器化-k8s-deploy-registry](../spring_cloud_tut/k8s-deploy-registry.png)
 
 通过上图能看到两个Pods已经运行起来。
 
 通过`kubectl describe pods sc-registry-1`能看到这个Pods的详细信息
 
-![容器化-k8s-deploy-registry]({attach}spring_cloud_tut/k8s-deploy-registry1.png)
+![容器化-k8s-deploy-registry](../spring_cloud_tut/k8s-deploy-registry1.png)
 
 进入Minikube集群，查询域名信息：
 

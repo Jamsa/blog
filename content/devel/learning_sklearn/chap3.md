@@ -1,8 +1,10 @@
-Title: Learning Sklearn笔记（三）
-Date: 2018-01-05
-Modified: 2018-01-05
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Learning Sklearn笔记（三）"
+date: 2018-01-05
+modified: 2018-01-05
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 # 非监督学习
 从前一章我们可以看到即监督学习方法可以在已有数据基础上判断将来的数据，但也存在明显的缺点：数据必须是准备过的；必须人工对一定的样本进行标记。这项工作通常需要由专家来完成（比如，为了正确的分类莺尾花，需要一些了解这些花的人），这将需要耗费一些时间和金钱，并且不会产生大量的数据（至少不能与Internet上的数据相比！）。每个监督学习方法都需要构建在尽可能多的样本数据上。
@@ -61,7 +63,7 @@ print_digits(digits.images,digits.target,max_n=10)
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_2_0.png)
+![png](../learning_sklearn/chap3_files/chap3_2_0.png)
 
 
 定义一个函数绘制PCA转换后的二维散点图。数据点将会被根据它的分类加上颜色。样本中的目标值，不会参与转换；但我们需要了解进行PCA转换后了解他们的分布情况。我们使用10种不同的颜色来表示这10个数字。
@@ -94,7 +96,7 @@ plot_pca_scatter(X_pca)
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_6_0.png)
+![png](../learning_sklearn/chap3_files/chap3_6_0.png)
 
 
 译注：得到的图是书中图的垂直翻转镜像，也许是因为PCA类的实现有变化！
@@ -130,7 +132,7 @@ print_pca_components(estimator.components_,5,2)
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_8_0.png)
+![png](../learning_sklearn/chap3_files/chap3_8_0.png)
 
 
 译注：得到的图与书中也是相反的，这可能是导致上面的散点图像与书中相比是垂直翻转镜像的原因。书中深浅区域与上图中的刚好相反，上图中深蓝区域，在书中是深红色。会导致下面的部分描述也需要相反的方式描述。
@@ -173,7 +175,7 @@ print_digits(digits.images,digits.target,max_n=10)
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_10_0.png)
+![png](../learning_sklearn/chap3_files/chap3_10_0.png)
 
 
 
@@ -228,7 +230,7 @@ print_digits(images_train,clf.labels_,max_n=10)
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_15_0.png)
+![png](../learning_sklearn/chap3_files/chap3_15_0.png)
 
 
 这里的簇编号与实际的数值并没有关系。因为我们并不是使用分类；而只是按图像的相似性进行分组。
@@ -251,43 +253,43 @@ for i in range(10):
 ```
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_0.png)
+![png](../learning_sklearn/chap3_files/chap3_17_0.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_1.png)
+![png](../learning_sklearn/chap3_files/chap3_17_1.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_2.png)
+![png](../learning_sklearn/chap3_files/chap3_17_2.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_3.png)
+![png](../learning_sklearn/chap3_files/chap3_17_3.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_4.png)
+![png](../learning_sklearn/chap3_files/chap3_17_4.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_5.png)
+![png](../learning_sklearn/chap3_files/chap3_17_5.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_6.png)
+![png](../learning_sklearn/chap3_files/chap3_17_6.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_7.png)
+![png](../learning_sklearn/chap3_files/chap3_17_7.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_8.png)
+![png](../learning_sklearn/chap3_files/chap3_17_8.png)
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_17_9.png)
+![png](../learning_sklearn/chap3_files/chap3_17_9.png)
 
 
 上面的代码显示了每个簇最多10个图像。一些簇是非常清晰的，比如簇编号2对应的图像。
@@ -387,7 +389,7 @@ plt.show()
 
 
 
-![png]({attach}learning_sklearn/chap3_files/chap3_21_1.png)
+![png](../learning_sklearn/chap3_files/chap3_21_1.png)
 
 
 ## 其它聚类方法

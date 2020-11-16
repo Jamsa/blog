@@ -1,8 +1,10 @@
-Title: OAF开发笔记
-Date: 2010-12-09
-Modified: 2010-12-09
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OAF开发笔记"
+date: 2010-12-09
+modified: 2010-12-09
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 
 # 开发advancedTable in advancedTable
 

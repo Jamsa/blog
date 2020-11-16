@@ -1,8 +1,10 @@
-Title: 会计拉面读书笔记
-Date: 2010-03-12
-Modified: 2010-03-12
-Category: 方法
-Tags: 
+---
+title: "会计拉面读书笔记"
+date: 2010-03-12
+modified: 2010-03-12
+categories: ["方法"]
+tags: [""]
+---
 
 - 损益平衡点（Break Even Point）：利润为零或收支相等时的销售额或者销售量。
 

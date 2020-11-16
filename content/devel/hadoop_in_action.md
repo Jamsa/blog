@@ -1,8 +1,10 @@
-Title: Hadoop In Action 笔记
-Date: 2015-05-18
-Modified: 2015-05-18
-Category: 大数据
-Tags: hadoop
+---
+title: "Hadoop In Action 笔记"
+date: 2015-05-18
+modified: 2015-05-18
+categories: ["大数据"]
+tags: ["hadoop"]
+---
 
 # Hadoop In Action 笔记 #
 
@@ -35,7 +37,7 @@ JobTracker进程是联络应用程序和Haddoop的。当提交代码到集群中
 每个TaskTracker负责执行JobTacker分配给它的各项任务。尽管每个从节点都只有一个TaskTracker，但是每个TaskTracker可以派生出多个JVM进程来并行处理多个map或reduce任务。
 TaskTracker的另一个职责是与JobTracker通讯。如果JobTracker在指定的时间内接收不到来自于TaskTracker的心跳信号，它将会认为这个TaskTracker已经崩溃，它会将对应的任务分配给集群的其它节点。
 
-![典型 Hadoop 集群]({attach}hadoop_in_action/Image.png)
+![典型 Hadoop 集群](../hadoop_in_action/Image.png)
 
 ## Hadoop组件 ##
 

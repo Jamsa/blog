@@ -1,8 +1,10 @@
-Title: SOA Suite培训
-Date: 2010-07-13
-Modified: 2010-07-13
-Category: 开发
-Tags: oracle,ebs
+---
+title: "SOA Suite培训"
+date: 2010-07-13
+modified: 2010-07-13
+categories: ["开发"]
+tags: ["oracle","ebs"]
+---
 
 # 介绍
  - 配置EBS启用SOA Suite

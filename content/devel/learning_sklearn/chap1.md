@@ -1,8 +1,10 @@
-Title: Learning Sklearn笔记（一）
-Date: 2018-01-02
-Modified: 2018-01-02
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Learning Sklearn笔记（一）"
+date: 2018-01-02
+modified: 2018-01-02
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 # Chap1 介绍
 
@@ -73,7 +75,7 @@ print(clf.intercept_)
 
 
 
-![png]({attach}learning_sklearn/chap1_files/chap1_1_1.png)
+![png](../learning_sklearn/chap1_files/chap1_1_1.png)
 
 
 使用上面输出的数据可以在图上画出三条不同的直线，这三条直线用于分隔不同的分类。ceof_的第一行为第一条直线的系数，a1,a2，intercept_为第一条直线的b，b+a1*x1+a2*x2=0，这里x1和x2为两个特征列，对应于图上的横轴和纵轴。
@@ -105,7 +107,7 @@ for i in [0,1,2]:
 ```
 
 
-![png]({attach}learning_sklearn/chap1_files/chap1_3_0.png)
+![png](../learning_sklearn/chap1_files/chap1_3_0.png)
 
 
 模型训练完毕。但是查看曲线只有第一类的分类效果比较好。现在使用数据进行测试：

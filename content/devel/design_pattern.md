@@ -1,8 +1,10 @@
-Title: 设计模式回顾
-Date: 2014-11-04
-Modified: 2014-11-04
-Category: 开发
-Tags: java,design pattern
+---
+title: "设计模式回顾"
+date: 2014-11-04
+modified: 2014-11-04
+categories: ["开发"]
+tags: ["java","design pattern"]
+---
 
 # 设计模式回顾
 

@@ -1,8 +1,10 @@
-Title: Scala Cookbook 笔记
-Date: 2015-05-21
-Modified: 2015-05-21
-Category: 开发
-Tags: scala
+---
+title: "Scala Cookbook 笔记"
+date: 2015-05-21
+modified: 2015-05-21
+categories: ["开发"]
+tags: ["scala"]
+---
 
 # Scala Cookbook 笔记
 ## String

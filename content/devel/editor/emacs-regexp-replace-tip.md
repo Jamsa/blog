@@ -1,8 +1,10 @@
-Title: Emacs 正则表达式搜索替换的小技巧
-Date: 2018-05-23
-Modified: 2018-05-23
-Category: 效率
-Tags: emacs
+---
+title: "Emacs 正则表达式搜索替换的小技巧"
+date: 2018-05-23
+modified: 2018-05-23
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 - 交互式的使用正则表达替换
 

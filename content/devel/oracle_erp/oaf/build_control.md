@@ -1,12 +1,14 @@
-Title: OA Framework应用构建之——实现控制器
-Date: 2008-08-06
-Modified: 2008-08-06
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework应用构建之——实现控制器"
+date: 2008-08-06
+modified: 2008-08-06
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: build_control
 
 # 设计一个OA Controller
-如[OA Framework Page解析]({filename}page.md)中所描述的，OA Controller定义了web beans的行为。具体来说，编写控制器代码的目的是：
+如[OA Framework Page解析](../page/)中所描述的，OA Controller定义了web beans的行为。具体来说，编写控制器代码的目的是：
 
  - 在运行时处理／初始化UI（包含那些通过编程方式添加的layout）
 
@@ -19,7 +21,7 @@ Slug: build_control
 
 作为一条规则，应该只在绝对必要的情况下才编写控制器。如果可以通过设计的方式创建页面，就不要通过编程的方式实现region和item。编程方式创建的web beans不能被个性化，重用或继承。而且，一些硬编码的layouts可能会丢失BLAF UI样式。
 
-在[实现视图]({filename}build_view.md)中说过，所有位于共同组件中的顶级regions必须与一个控制器关联。
+在[实现视图](../build_view/)中说过，所有位于共同组件中的顶级regions必须与一个控制器关联。
 
 ## 粒度
 OA Controllers可以与任何region关联（任何实现oracle.apps.fnd.framework.webui.beans.OAWebBeanContainer接口的web beans）；不能将控制器与items关联。
@@ -175,7 +177,7 @@ public void processRequest(OAPageContext pageContext, OAWebBean webBean)
 
 使用页面的title值定义页面标题和breadcrumbs：
 
-![page_title]({attach}oaf_build_control/page_title.gif)
+![page_title](../oaf_build_control/page_title.gif)
 
 
 由于显示于页面中的值必须被翻译，我们在Oracle应用消息字典（Oracle Application Message Dictionary）中创建了一个名为FWK_TBX_T_PO_HEADER_TEXT的消息，消息内容为“Purchase Order: &PO_NUMBER”。这个代码定义了以令牌PO_NUMBER作为Purchase Order Number的占位符，然后从oracle.apps.fnd.framework.webui.OAPageContext（它将操作委派给AOL/J）中提取翻译后的版本。然后将翻译后的字符串作为页面标题。
@@ -400,7 +402,7 @@ import oracle.apps.fnd.framework.OAViewObject;
 ```
 如果需要执行视图对象查询，应该按下面在“Search”区域中按下“Go”按钮的事件处理的例子的方式。
 
-首先，添加方法到应用模块中（这个例子中，它是页面的根应用模块）它接收查询，然后将它委派给视图对象执行查询（查看[实现模型]({filename}build_model.md)获取关于查询的信息）。
+首先，添加方法到应用模块中（这个例子中，它是页面的根应用模块）它接收查询，然后将它委派给视图对象执行查询（查看[实现模型](../build_model/)获取关于查询的信息）。
 ```java
 public void search(String orderNumber, String created, String showMyOrders)
 {
@@ -448,7 +450,7 @@ am.invokeMethod("search", parameters, parameterTypes);
 ```
 类似地，由于视图对象是实体对象的导管——不应该在控制器中直接与视图对象交互——也应该通过应用模块来处理实体操作。
 
-**注意：** 如[实现模型]({filename}build_model.md)中描述的，添加到应用模块中的方法命名应该与UI“事件（events）“对应。比如，如果用户按了“Create”按钮，应用模块方法应该命名为“create”等等。
+**注意：** 如[实现模型](../build_model/)中描述的，添加到应用模块中的方法命名应该与UI“事件（events）“对应。比如，如果用户按了“Create”按钮，应用模块方法应该命名为“create”等等。
 
 **创建的实例**
 

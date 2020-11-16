@@ -1,8 +1,10 @@
-Title: 高级OA Framework开发主题——支持浏览后退按钮
-Date: 2008-07-04
-Modified: 2008-07-04
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "高级OA Framework开发主题——支持浏览后退按钮"
+date: 2008-07-04
+modified: 2008-07-04
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: adv_backbutton
 
 
@@ -61,7 +63,7 @@ Slug: adv_backbutton
 ### 目标2：在状态改变时避免严重的Unexpected Exceptions
 你的最小目标是应该避免严重的unexpected exception，如NullPointerExcpetion或IndexOutOfBoundException，它将显示不可读的信息给用户。应该用用户可读的文本信息对话框来取代异常信息。
 
-参见 [Use Case-Specific General Standards]({filename}adv_back_use_cases.md#general) 了解这个目标的更多细节信息。
+参见 [Use Case-Specific General Standards](../adv_back_use_cases/#general) 了解这个目标的更多细节信息。
 
 ## 内容
 
@@ -143,7 +145,7 @@ oracle.apps.fnd.framework.webui.TransactionUnitHelper类允许你描绘用户接
 
  - 为了优化性能，对于没有表单元素的只读表格OA Framework不会执行数据过期的检查。对于某些特殊情况需要对只读表格进行数据过期检查的，可以表格区域的最后添加一个虚拟的可更新隐藏字段（ **formValue** ）。
 
- - 为了获取“数据过期”错误的根本原因，可以启用开发模式（Developer Mode）或诊断模式（Diagnostic Mode）。当这两种模式启用时，面向开发者的附加内容将显示在对话框页面的消息中，帮助诊断代码错误。参见[测试OA Framework应用]({filename}test_test.md)以了解启用这些模式的信息。
+ - 为了获取“数据过期”错误的根本原因，可以启用开发模式（Developer Mode）或诊断模式（Diagnostic Mode）。当这两种模式启用时，面向开发者的附加内容将显示在对话框页面的消息中，帮助诊断代码错误。参见[测试OA Framework应用](../test_test/)以了解启用这些模式的信息。
 
  - “数据过期”错误的意外出现也有可能是与VO对象的初始值有关。参见下面的[避免无条件的VO对象/事务状态初始值](#uncond)以了解更多信息。
 
@@ -160,7 +162,7 @@ oracle.apps.fnd.framework.webui.TransactionUnitHelper类允许你描绘用户接
 
 这个检查在用户使用后退按钮并再次保存对过期数据的修改时也有好处。
 
-关于BC4J锁的更多信息，参见第五章[实现Java实体对象]({filename}bus_java.md)。
+关于BC4J锁的更多信息，参见第五章[实现Java实体对象](../bus_java/)。
 
 ## 标准错误对话框（Standard Error Dialogs）
 OA Framework包含了一些标准错误对话框。
@@ -207,15 +209,15 @@ public void processRequest(OAPageContext pageContext, OAWebBean webBean)
 <a name="general"></a>
 ## 一般标准
 
-### 1. 定义VO对象的主键 (模型编码标准[M39]({filename}cs_mdlgeneral.md#M39))
+### 1. 定义VO对象的主键 (模型编码标准[M39](../cs_mdlgeneral/#M39))
 
 为了使得上面所述的VO对象的主键可以进行比较，所有VO必须一个主键或以ROWID来代替。主键适合。
 
 **例外：** 如果是一个不包含逻辑主键的简单只读VO对象，则不需要创建主键。比如，一个单列VO对象查询的是某列的合计值而并不包含逻辑主键。
 
-如果你需要了解如何定义VO对象的主键，参见[实现模型]({filename}build_model.md)。如果没有主键则应该使用ROWID，只需要在VO对象的SQL中选择ROWID伪列对应的属性名称为 **Rowid** 或 **RowId** 。
+如果你需要了解如何定义VO对象的主键，参见[实现模型](../build_model/)。如果没有主键则应该使用ROWID，只需要在VO对象的SQL中选择ROWID伪列对应的属性名称为 **Rowid** 或 **RowId** 。
 
-### 2. 不要假设VO对象的状态（模型编码标准[M38]({filename}cs_mdlgeneral.md#M38)，[M37]({filename}cs_mdlgeneral.md#M37)）
+### 2. 不要假设VO对象的状态（模型编码标准[M38]({filename}cs_mdlgeneral.md#M38)，[M37](../cs_mdlgeneral/#M37)）
 
 对于VO对象的状态永远不要臆测：
 
@@ -292,10 +294,10 @@ if (vo.lookupAttributeDef("MyAttr") == null)
 }
 ```
 
-### 3. 在processRequest之外修改Web Bean属性（控制器编码标准[C16]({filename}cs_ctrlgeneral.md#C6)，[C15]({filename}cs_ctrlgeneral.md#C15)）
+### 3. 在processRequest之外修改Web Bean属性（控制器编码标准[C16]({filename}cs_ctrlgeneral.md#C6)，[C15](../cs_ctrlgeneral/#C15)）
 不要在processFormData()或processFormRequest()中添加修改web bean的逻辑。如果你需要在处理form提交请求过程中修改web bean层级结构或修改web bean属性，你可以：
 
- - 参见第四章[动态用户界面]({filename}feat_ppr.md)将属性绑定到SPEL上和使用页面区域渲染。
+ - 参见第四章[动态用户界面](../feat_ppr/)将属性绑定到SPEL上和使用页面区域渲染。
 
  - 使用OAPageContext.setForward*()方法退回页面，并半retainAM参数设置为true，然后在processRequest()中执行你的bean处理逻辑。
 
@@ -352,7 +354,7 @@ public void processRequest(OAPageContext pageContext, OAWebBean webBean){
 
    OA Framework检测到浏览器后退按钮，在响应时，重建web bean层级结构并包含了 **Region2** 和用户添加到请求的数据。这确保了中间层与浏览器缓存正确同步了动作处理没有出现错误。
 
-### 4. 避免无条件VO/事务状态初始值（控制器编码标准[C32]({filename}cs_ctrlgeneral.md#C32)）
+### 4. 避免无条件VO/事务状态初始值（控制器编码标准[C32](../cs_ctrlgeneral/#C32)）
 
 在上面的[Web Bean层级结构同步](#hier_synch)一节中描述过processRequest()方法可能重复的进入，避免无条件的VO对象和事务状态初始值。
 
@@ -370,7 +372,7 @@ public void processRequest(OAPageContext pageContext, OAWebBean webBean){
 
  - 多余的执行查询和状态初始化性能上是不可取的（[performant](http://boulter.com/blog/2004/08/19/performant-is-not-a-word/)）。
 
-参见[VO对象细节：初始化规则]({filename}bus_vo.md#init)了解如何对VO对象执行适当的初始化。
+参见[VO对象细节：初始化规则](../bus_vo/#init)了解如何对VO对象执行适当的初始化。
 
 #### 事务状态
 
@@ -382,8 +384,8 @@ if (pageContext.getTransactionValue("poTrxStep") == null){
 ```
 **注意：** 如果事务值（transaction value）可以改变过程并且你只需要初始化这个值一次，则这个检查是很重要的。
 
-### 5. 恰当的配置对话框页面（控制器编码标准[C30]({filename}cs_ctrlgeneral.md#C30)）
-如果在导航到对话框页面时，需要根据用户对对话框页面问题的响应来交换数据，可以配置按钮来提交它的表单到调用页面。参见[对话框页面]({filename}ebs_feat_dialog.md)了解操作细节。OA Framework将在调用processFormData()和processFormRequest()之前重新进入processRequest()，以确保你的页面能预期到[无条件VO对象/事务初始化](#uncond)。
+### 5. 恰当的配置对话框页面（控制器编码标准[C30](../cs_ctrlgeneral/#C30)）
+如果在导航到对话框页面时，需要根据用户对对话框页面问题的响应来交换数据，可以配置按钮来提交它的表单到调用页面。参见[对话框页面](../ebs_feat_dialog/)了解操作细节。OA Framework将在调用processFormData()和processFormRequest()之前重新进入processRequest()，以确保你的页面能预期到[无条件VO对象/事务初始化](#uncond)。
 
 **注意：**
 
@@ -391,14 +393,14 @@ if (pageContext.getTransactionValue("poTrxStep") == null){
 
  - 不要使用OADialogPage中的deprecated的方法setReleaseAllRootApplicationModules和setReleaseRootApplicationModule。如果使用了这些方法，则用户导航到OA Framework页面如Preference页，并用 **Cancel** 按钮返回对话框页面时对话框页面的状态时将失效。参见Javadoc以了解这些方法的更多信息。
 
-### 6. 正确的通过页面与状态通讯（控制器编码标准[C20]({filename}cs_ctrlgeneral.md#C20)，[C17]({filename}cs_ctrlgeneral.md#C17)）
+### 6. 正确的通过页面与状态通讯（控制器编码标准[C20]({filename}cs_ctrlgeneral.md#C20)，[C17](../cs_ctrlgeneral/#C17)）
 在考虑在特定情况下使用哪种通讯方法之前，先了解一下有哪些可用的选项。
 
  方法 | 描述
 :---- | :---- 
 URL 参数 | 你可以直接添加参数及其值到URL。
 隐藏域OAFormValueBean | HTML页面隐藏域的值在form提交时将添加到请求中。
-FormParameter OAFormParameterBean | HTML页面隐藏域的值在form提交时将添加到请求，与OAFormValueBean不同，这个值在每次form提交时会被清空（在fireAction或firePartialAction事件方法给它设置新值之前）。 **注意：** 这个组件的使用是保留的，是专门用于配置fireAction和firePartialAction事件的。参见第四章的[Declarative Form Submit]({filename}feat_submitform.md)和[动态用户界面]({filename}ebs_feat_ppr.md)以了解更多细节。不要直接在你的页面中添加FormParameter beans。
+FormParameter OAFormParameterBean | HTML页面隐藏域的值在form提交时将添加到请求，与OAFormValueBean不同，这个值在每次form提交时会被清空（在fireAction或firePartialAction事件方法给它设置新值之前）。 **注意：** 这个组件的使用是保留的，是专门用于配置fireAction和firePartialAction事件的。参见第四章的[Declarative Form Submit]({filename}feat_submitform.md)和[动态用户界面](../ebs_feat_ppr/)以了解更多细节。不要直接在你的页面中添加FormParameter beans。
 OAPageContext.putParameter() | 将参数值添加到特殊的页面缓存中，这个值在单个请求是持久化的。 **注意：** 如果，用户导航到个性化或首选项页面然后返回你的页面。如果你只依赖于putParameter()设置的值，则它将不能正确重建页面。这是因为导航流承担了多次请求。
 Transaction Value OAPageContext.putTransactionValue() | 将值添加应用模块的事务中，它在应用模块被保留时将一直存在。
 Application Module Value OAApplicationModuleImpl.putValue() | 将值添加到应用模块中，它在应用模块被保留时将一直存在。
@@ -418,7 +420,7 @@ TransientSessionValue OAPageContext.putTransientSessionValue() | Session值存�
 #### 用法推荐
 这节描述了正确的方法在可预期的游览后退按钮操作时与页面相关状态进行通讯。这些推荐方法包括启用“Return to”链接在不同的模块间导航并确保个性化和首选项模块能与你的页面无缝集成。例如，当用户在个性模块时选择“Cancel”按钮，你的页面应该能够正确的重建。
 
-参见[OA Framework状态管理]({filename}ess_state.md)了解更多相关的技术细节。
+参见[OA Framework状态管理](../ess_state/)了解更多相关的技术细节。
 
 <a name="intra-app-long"></a>
 应用内导航
@@ -427,9 +429,9 @@ TransientSessionValue OAPageContext.putTransientSessionValue() | Session值存�
 
  - 如果是在form提交的环境下与状态通讯，使用OAPageContext.setForward*()方法的“paramters”HashMap。如果可能，应该避免使用OAPageContext.putParameter()。
 
- - 如果是在GET请求中与状态通讯，直接添加组件的Destination URI的静态绑定值将变成URL参数。在选择菜单项时你也可以将URL参数添加到请求中。参见[Tabs/Navigation]({filename}feat_tabs.md)。
+ - 如果是在GET请求中与状态通讯，直接添加组件的Destination URI的静态绑定值将变成URL参数。在选择菜单项时你也可以将URL参数添加到请求中。参见[Tabs/Navigation](../feat_tabs/)。
 
-**技巧：** 通过浏览地址栏设置的值将显示给用户。用户通过查看页面源码也可以看到隐藏域值。在这两种情况下，敏感的数据值必须被如[实现视图：URL参数]({filename}build_view.md#urlparams)中描述的进行加密。
+**技巧：** 通过浏览地址栏设置的值将显示给用户。用户通过查看页面源码也可以看到隐藏域值。在这两种情况下，敏感的数据值必须被如[实现视图：URL参数](../build_view/#urlparams)中描述的进行加密。
 
 为了根据更复杂或长时间存在的状态值来构建目标页面，可以使用下面的与应用模块相关的缓存：
 
@@ -447,7 +449,7 @@ TransientSessionValue OAPageContext.putTransientSessionValue() | Session值存�
 
  - 不要为了省事而在只读页面中使用OAApplicationModule，总是使用自己的应用模块类。
 
- - 避免在页面被渲染前调用OAPageContext.releaseRootApplicationModule()来释放应用模块；这将导致过早的丢失页面状态。可以通过配置保留级别（retention levels）为 **CONNECTION_AGNOSTIC** 或 **MANAGE_STATE** 将你的根应用模块申明为无状态连接。参见[OA Framework State Persistence Model (Passivation)]({filename}adv_passive.md#ret_level)以了解更多信息。
+ - 避免在页面被渲染前调用OAPageContext.releaseRootApplicationModule()来释放应用模块；这将导致过早的丢失页面状态。可以通过配置保留级别（retention levels）为 **CONNECTION_AGNOSTIC** 或 **MANAGE_STATE** 将你的根应用模块申明为无状态连接。参见[OA Framework State Persistence Model (Passivation)](../adv_passive/#ret_level)以了解更多信息。
 
 应用间导航
 
@@ -541,39 +543,39 @@ private void transitionPageState(OAPageContext pageContext)
 
 ### 有条件的禁止表单提交动作
 
-在某些情况下，在使用浏览后退按钮后用户不应该也不能提交表单。参见下面的[Use Case-Specific General Standards]({filename}adv_back_use_cases.md#general)指导方针对特殊情况进行处理。
+在某些情况下，在使用浏览后退按钮后用户不应该也不能提交表单。参见下面的[Use Case-Specific General Standards](../adv_back_use_cases/#general)指导方针对特殊情况进行处理。
 
 ## 使用特殊情况标准
 
 除了上面的一般性规则，检查下面的列表看是否有相符合的特殊情况，如果有则应该遵循下面的规则。
 
- - 只读页面[只读页面单步创建]({filename}adv_back_use_cases.md#read_only_create)
+ - 只读页面[只读页面单步创建](../adv_back_use_cases/#read_only_create)
 
- - 只读页面[只读页面多步创建]({filename}adv_back_use_cases.md#read_only_multistep_create)
+ - 只读页面[只读页面多步创建](../adv_back_use_cases/#read_only_multistep_create)
 
- - 只读页面[只读页面删除]({filename}adv_back_use_cases.md#read_only_delet)
+ - 只读页面[只读页面删除](../adv_back_use_cases/#read_only_delet)
 
- - 只读页面[只读单页面修改（允许迭代修改）]({filename}adv_back_use_cases.md#read_only_update)
+ - 只读页面[只读单页面修改（允许迭代修改）](../adv_back_use_cases/#read_only_update)
 
- - 只读页面[只读单页面修改（允许单次修改）]({filename}adv_back_use_cases.md#read_only_single_update)
+ - 只读页面[只读单页面修改（允许单次修改）](../adv_back_use_cases/#read_only_single_update)
 
- - 只读页面[只读页面多步修改]({filename}adv_back_use_cases.md#read_only_multistep_update)
+ - 只读页面[只读页面多步修改](../adv_back_use_cases/#read_only_multistep_update)
 
- - 只读页面[可修改的摘要页面（Summary）单步或多步创建或修改]({filename}adv_back_use_cases.md#txn_all)
+ - 只读页面[可修改的摘要页面（Summary）单步或多步创建或修改](../adv_back_use_cases/#txn_all)
 
- - 只读页面[可修改的摘要页面（Summary）多步创建或修改和子事务]({filename}adv_back_use_cases.md#txn_sub)
+ - 只读页面[可修改的摘要页面（Summary）多步创建或修改和子事务](../adv_back_use_cases/#txn_sub)
 
- - 只读页面[摘要（Summary）和事务页面应用间（Inter-Application（Cross-Product））页面流]({filename}adv_back_use_cases.md#txn_crossprod)
+ - 只读页面[摘要（Summary）和事务页面应用间（Inter-Application（Cross-Product））页面流](../adv_back_use_cases/#txn_crossprod)
 
- - 只读页面[可修改摘要页面（Summary）或表格中的动作（复制和移除）]({filename}adv_back_use_cases.md#txn_inline)
+ - 只读页面[可修改摘要页面（Summary）或表格中的动作（复制和移除）](../adv_back_use_cases/#txn_inline)
 
- - 只读页面[PPR页面刷新]({filename}adv_back_use_cases.md#ppr)
+ - 只读页面[PPR页面刷新](../adv_back_use_cases/#ppr)
 
 ## 测试浏览器后退按钮
 
 测试应用对浏览后退按钮的支持：
 
- 1. 手工按[Use Case-Specific Standards]({filename}adv_back_use_cases.mdl)列表中的导航路径进行测试。除了通过后退按钮导航，也要尝试：
+ 1. 手工按[Use Case-Specific Standards](../adv_back_use_cases/l)列表中的导航路径进行测试。除了通过后退按钮导航，也要尝试：
 
     在事务处理页面有意地输入无效的数据并执行表单提交动作以产生一个校验错误。并使用后退按钮退回摘要页面（Summary）。无效的对象不应该引起其它错误，在正确的重新输入数据后事务页面应该可以开始一个新的事务。
 

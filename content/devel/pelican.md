@@ -1,8 +1,10 @@
-Title: Pelican 静态博客
-Date: 2018-05-12
-Modified: 2018-05-12
-Category: 开发
-Tags: python
+---
+title: "Pelican 静态博客"
+date: 2018-05-12
+modified: 2018-05-12
+categories: ["开发"]
+tags: ["python"]
+---
 
 ## 重新整理博客
 

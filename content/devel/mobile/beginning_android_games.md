@@ -1,8 +1,10 @@
-Title: Beginning Android Games学习笔记
-Date: 2012-07-28
-Modified: 2015-04-25
-Category: 移动
-Tags: android
+---
+title: "Beginning Android Games学习笔记"
+date: 2012-07-28
+modified: 2015-04-25
+categories: ["移动"]
+tags: ["android"]
+---
 
 # Game Development 101
 在开始hacking前先进行游戏设计。这并非指基本的设计，比如FPS中的WSAD的鼠标之类的。而是类似：是否需要splash screen？需要哪些菜单项？游戏设置里需要有哪些选项？等等。
@@ -895,7 +897,7 @@ OpenGL ES的API是由一套由Khronos提供的C头文件来提供的，没有包
 ### 编程模型：模拟
 可以把OpenGL ES工作的时候当成一个摄像机。为了拍摄照片你需要转移到需要拍照的场景。场景是由对象组成的——比如一个放置了东西的桌子。上面的东西都有自己的位置和方向（相对于像机），也有不同的材质和纹理。比如玻璃是透明的，光线反射较少，桌子可能是由木头组成的，杂志上有某个政客最新的照片，等等。有些对象也可能会移动（比如，飞动的水果）。摄像机也有一些特性，比如焦躁、视野、要拍摄的图像分辨率和大小，和它相对于整个世界的位置和方向（相对于某个原点）。甚至对象和像机都在移动，当按下按钮拍摄照片时仍然可以拍到场景上的图像（忽略快门速度）。在这个无穷短的瞬间所有的东西都存在，图像正确的反应出一这些东西的位置、方向、纹理、材质和光线。
 
-![图7-1]({attach}beginning_android_games/abstract_scene.png)
+![图7-1](../beginning_android_games/abstract_scene.png)
 图7-1
 
 所有的东西相对于场景的原点都有自己的位置和方向。图中的眼睛代表相机，也有它相对于场景原点的位置和方向。图中的锥体被称为视卷或者视锥（view volume or view frustum）。它展示了相机的方向和场景中有多少内容能被它捕获到。白色的球代表的是场景中的光源，它也有相对于原点的位置。
@@ -918,14 +920,14 @@ OpenGL ES的API是由一套由Khronos提供的C头文件来提供的，没有包
 
 这两种情况下都需要被称为投影平面的东西。它类似于我们的视网膜。这是最终的将光线转换成图片的地方。数学上的投影平面是无限的，我们的视网膜却是有限的。在OpenGL ES中的“视网膜”相当于视锥顶部的矩形区域。OpenGL ES会将点投影到它的上面。它被称为近端裁剪平面（near clipping plane）它有自己的2D坐标系统。下图展示了叠加了坐标系统的近端裁剪平面。
 
-![图7-2]({attach}beginning_android_games/view_frustum.png)
+![图7-2](../beginning_android_games/view_frustum.png)
 图7-2
 
 注意上面的坐标是不固定的。我们可以指定投影的坐标系统（比如告诉OpenGL ES将原点放在左下角，让“视网膜”可以看到X轴480个单位Y轴320个单位的范围）。听起来很熟悉吧？是的，OpenGL ES允许我们指定投影点的坐标系统。
 
 当我们指定视锥后，OpenGL ES从三角形的每个点发出一条穿过投影平面的光线。平行或者透视（parallel and perspective）投影方式决定了光线的方向。如下图，展示了两者的区别。
 
-![图7-3]({attach}beginning_android_games/projection_type.png)
+![图7-3](../beginning_android_games/projection_type.png)
 图7-3
 
 透视投影将光线从三角形上的点射向相机（或者说眼睛）。这时离投影平面远的物体会显得小些。而当我们使用平行投影时，光线光垂直射向投影平面。这时不管物体的远近如何，它都将会保持相同的大小。
@@ -959,7 +961,7 @@ OpenGL ES有三种不同的矩阵来处理模型中的点：
 ### 渲染管线
 OpenGL ES会跟踪上面这三种矩阵。当我们设置其中一种矩阵时，它将会记住它直到我们再次修改矩阵。在OpenGL ES中，它被称为状态。OpenGL跟踪的不只是矩阵的状态；它也跟踪我们是否需要进行三角形的Ahpha混合，是否要考虑照明，哪个纹理应该被应用到模型上，等等。实际上OpenGL ES是一个巨大的状态机。我们设置它的当前状态，告诉它我们的物体的几何形状，告诉它如何渲染成图片。让我们看看三角形是如何通过这个强大的三角形渲染机器的。下图简要的展示了OpenGL ES中的管线：
 
-![way of triangle]({attach}beginning_android_games/way_of_triangle.png)
+![way of triangle](../beginning_android_games/way_of_triangle.png)
 
 三角形是以下面的方式通过管线的：
  1. 三角形首先被转换成model-view矩阵。这意味着它的点将与这个矩阵相乘。这个乘法将影响到世界（场景）中的点。
@@ -1038,7 +1040,7 @@ Gl10.glOrthof(int left, int right, int bottom, int top, int near, int far)
 
 OpenGL ES有标准的坐标系统，X轴朝向右边，Y轴朝向左边，Z轴朝向我们自己。使用glOrthof()我们在这个坐标系统中定义我们的平行投影的视锥。如图7-3所示，我们知道平行投影的视锥像一个盒子。我们可以用这个视锥盒子的各个角来指定glOrthof()的参数。
 
-![图7-5]({attach}beginning_android_games/orthographic_view_frustum.png)
+![图7-5](../beginning_android_games/orthographic_view_frustum.png)
 图7-5
 
 视锥的前面直接可以映射为我们的viewport。在全屏时viewport从(0,0)到(480,320)（相当于Hero的横屏模式），前面的左下角将映射到我们屏幕的左下角，前面的右上角映射到屏幕的左上角。（这里不明白，写错了？）OpenGL将自动执行拉伸。
@@ -1047,7 +1049,7 @@ OpenGL ES有标准的坐标系统，X轴朝向右边，Y轴朝向左边，Z轴�
 ```java
 gl.glOrthof(0, 480, 0, 320, 1, -1);
 ```
-![图7-6]({attach}beginning_android_games/parallel_projection_view_frustum_for_2D.png)
+![图7-6](../beginning_android_games/parallel_projection_view_frustum_for_2D.png)
 
 图7-6
 

@@ -1,8 +1,10 @@
-Title: Matplotlib的使用
-Date: 2018-2-25
-Modified: 2018-02-25
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Matplotlib的使用"
+date: 2018-2-25
+modified: 2018-02-25
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 
 ```python
@@ -22,7 +24,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_0_0.png)
+![png](../matplotlib/matplotlib_0_0.png)
 
 
 
@@ -59,7 +61,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_1_0.png)
+![png](../matplotlib/matplotlib_1_0.png)
 
 
 
@@ -70,7 +72,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_2_0.png)
+![png](../matplotlib/matplotlib_2_0.png)
 
 
 
@@ -86,7 +88,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_3_0.png)
+![png](../matplotlib/matplotlib_3_0.png)
 
 
 
@@ -113,7 +115,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_4_0.png)
+![png](../matplotlib/matplotlib_4_0.png)
 
 
 
@@ -148,7 +150,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_5_0.png)
+![png](../matplotlib/matplotlib_5_0.png)
 
 
 
@@ -162,7 +164,7 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_6_0.png)
+![png](../matplotlib/matplotlib_6_0.png)
 
 
 
@@ -208,5 +210,5 @@ pl.show()
 ```
 
 
-![png]({attach}matplotlib/matplotlib_7_0.png)
+![png](../matplotlib/matplotlib_7_0.png)
 

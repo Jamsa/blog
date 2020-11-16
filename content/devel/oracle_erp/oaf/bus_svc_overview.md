@@ -1,8 +1,10 @@
-Title: 实现服务端功能之——服务
-Date: 2008-07-08
-Modified: 2008-07-08
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "实现服务端功能之——服务"
+date: 2008-07-08
+modified: 2008-07-08
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: bus_svc_overview
 
 # 面向服务的架构预览
@@ -18,7 +20,7 @@ Slug: bus_svc_overview
 
 SOA的基本概念
 
-![srv_overview]({attach}oaf_bus_svc_overview/srv_overview.gif)
+![srv_overview](../oaf_bus_svc_overview/srv_overview.gif)
 
 使用面向服务的架构你可以：
 

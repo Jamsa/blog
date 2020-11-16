@@ -1,8 +1,10 @@
-Title: 使用 Chocolatey 在 Win10 下配置 rust 开发环境
-Date: 2018-07-29
-Modified: 2018-07-29
-Category: 开发
-Tags: rust, chocolatey, cargo, msvc, racer
+---
+title: "使用 Chocolatey 在 Win10 下配置 rust 开发环境"
+date: 2018-07-29
+modified: 2018-07-29
+categories: ["开发"]
+tags: ["rust"," chocolatey"," cargo"," msvc"," racer"]
+---
 
 # 简介
 
@@ -169,5 +171,5 @@ Caused by:
 
 可参照[这篇文章](https://www.brycevandyk.com/debug-rust-on-windows-with-visual-studio-code-and-the-msvc-debugger/)进行配置。只需要在`vscode`中安装`C/C++`和`Native Debug`这两个插件即可。
 
-![vscode 调试 rust 代码]({attach}rust_win_env/rust_vscode_debug.png)
+![vscode 调试 rust 代码](../rust_win_env/rust_vscode_debug.png)
 

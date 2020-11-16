@@ -1,8 +1,10 @@
-Title: Sed Tips
-Date: 2007-06-19
-Modified: 2007-06-19
-Category: 效率
-Tags: linux,sed
+---
+title: "Sed Tips"
+date: 2007-06-19
+modified: 2007-06-19
+categories: ["效率"]
+tags: ["linux","sed"]
+---
 
 # I介绍
 

@@ -1,8 +1,10 @@
-Title: Better Builds With Maven 学习笔记
-Date: 2009-09-21
-Modified: 2009-09-21
-Category: 开发
-Tags: maven
+---
+title: "Better Builds With Maven 学习笔记"
+date: 2009-09-21
+modified: 2009-09-21
+categories: ["开发"]
+tags: ["maven"]
+---
 
 # 开始
 ## 准备使用Maven

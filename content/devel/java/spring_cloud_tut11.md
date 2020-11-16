@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手11-配置优化
-Date: 2018-06-14
-Modified: 2018-06-14
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手11-配置优化"
+date: 2018-06-14
+modified: 2018-06-14
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第十一篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -10,7 +12,7 @@ Tags: spring cloud
 
 本篇主要对各应用的配置进行优化，原因主要有两个：
 
- - 此前[配置中心]({filename}spring_cloud_tut7.md)一文中只把`provider:service`与配置中心进行了集成，其它应用仍是读取本地的配置信息。
+ - 此前[配置中心](../spring_cloud_tut7/)一文中只把`provider:service`与配置中心进行了集成，其它应用仍是读取本地的配置信息。
  
  - 写至本篇的时候，发现各个模块的配置文件已经比较乱了，存在大量重复配置，配置文件中也存在一些不需要的配置项，需要进行一轮整理。
  

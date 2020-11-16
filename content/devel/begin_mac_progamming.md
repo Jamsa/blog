@@ -1,8 +1,10 @@
-Title: Begin Mac Programming 笔记
-Date: 2015-06-29
-Modified: 2015-06-29
-Category: 开发
-Tags: objective-c,mac
+---
+title: "Begin Mac Programming 笔记"
+date: 2015-06-29
+modified: 2015-06-29
+categories: ["开发"]
+tags: ["objective-c","mac"]
+---
 
 # 关于对象
 

@@ -1,8 +1,10 @@
-Title: JTV开发笔记4-客户端
-Date: 2018-07-19
-Modified: 2018-07-19
-Category: 开发
-Tags: scala, netty, jtv
+---
+title: "JTV开发笔记4-客户端"
+date: 2018-07-19
+modified: 2018-07-19
+categories: ["开发"]
+tags: ["scala"," netty"," jtv"]
+---
 
 本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 
@@ -24,7 +26,7 @@ Tags: scala, netty, jtv
  
  1. 远程控制：当客户端作为控制端时，通过创建新的控制窗口`RemoteFrame`来实现对远程桌面的监控和操作。`RemoteFrame`打开时，使用`ConnectionFactory`建立与服务器的新连接，用该连接发送控制请求。服务端接收到这个控制请求后，从中获取被控端会话`ID`。根据这个会话`ID`查找到目标客户端（被控端）的会话通道，将控制请求发送至被控端。被控端接受到这个连接请求后，创建被控连接，并发送接受控制的响应。服务端接收到响应后，将这个连接与控制端的连接进行绑定，建立控制端与被控端的点对点连接。之后两者间就可以通过这个连接对，进行屏幕和事件发送。
  
-![连接建立过程]({attach}jtv/control_conn_seq.png) 
+![连接建立过程](../jtv/control_conn_seq.png) 
  
 # 实现
 

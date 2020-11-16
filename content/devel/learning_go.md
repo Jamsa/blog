@@ -1,8 +1,10 @@
-Title: Learning Go 笔记
-Date: 2015-06-05
-Modified: 2015-06-05
-Category: 开发
-Tags: go
+---
+title: "Learning Go 笔记"
+date: 2015-06-05
+modified: 2015-06-05
+categories: ["开发"]
+tags: ["go"]
+---
 
 # Learning Go 笔记
 

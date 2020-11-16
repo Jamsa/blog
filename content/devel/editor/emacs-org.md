@@ -1,8 +1,10 @@
-Title: Emacs Org Mode及GTD
-Date: 2009-01-09
-Modified: 2009-01-09
-Category: 效率
-Tags: emacs,org
+---
+title: "Emacs Org Mode及GTD"
+date: 2009-01-09
+modified: 2009-01-09
+categories: ["效率"]
+tags: ["emacs","org"]
+---
 
 # Org Mode常用快捷键
 

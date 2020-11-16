@@ -1,8 +1,10 @@
-Title: Learn VI 笔记
-Date: 2010-09-29
-Modified: 2010-09-29
-Category: 效率
-Tags: vi,vim
+---
+title: "Learn VI 笔记"
+date: 2010-09-29
+modified: 2010-09-29
+categories: ["效率"]
+tags: ["vi","vim"]
+---
 
 # VI编辑器
 vi默认模式为命令模式

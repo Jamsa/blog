@@ -1,8 +1,10 @@
-Title: Learning Sklearn笔记（二）
-Date: 2018-01-05
-Modified: 2018-01-05
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Learning Sklearn笔记（二）"
+date: 2018-01-05
+modified: 2018-01-05
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 # Chap2 监督学习
 
@@ -83,7 +85,7 @@ print_faces(faces.images,faces.target,20);
 ```
 
 
-![png]({attach}learning_sklearn/chap2_files/chap2_4_0.png)
+![png](../learning_sklearn/chap2_files/chap2_4_0.png)
 
 
 
@@ -324,7 +326,7 @@ print_faces(eval_faces,y_pred,10)
 ```
 
 
-![png]({attach}learning_sklearn/chap2_files/chap2_16_0.png)
+![png](../learning_sklearn/chap2_files/chap2_16_0.png)
 
 
 第8个图像识别错了。
@@ -856,7 +858,7 @@ display(Image(filename='titanic.png'))
 ```
 
 
-![png]({attach}learning_sklearn/chap2_files/chap2_47_0.png)
+![png](../learning_sklearn/chap2_files/chap2_47_0.png)
 
 
 对样例分类时，我们需要回答每个节点上的问题。比如，对于根节点，问题是：`sex<-0.5`（是否为女性）。如果答案为是，则走向左边的子树，否则走向右边的子树。继续回答下去直到达到叶节点。这时，样例被归类为实例最多（针对前一节点的问题）的这一类。

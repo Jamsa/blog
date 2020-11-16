@@ -1,8 +1,10 @@
-Title: OA Framework应用构建之——错误处理
-Date: 2007-08-21
-Modified: 2007-08-21
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework应用构建之——错误处理"
+date: 2007-08-21
+modified: 2007-08-21
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: build_error
 
 # 异常类型

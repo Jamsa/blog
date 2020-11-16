@@ -1,8 +1,10 @@
-Title: PlantUML的使用
-Date: 2018-06-22
-Modified: 2018-06-22
-Category: 开发
-Tags: plantuml
+---
+title: "PlantUML的使用"
+date: 2018-06-22
+modified: 2018-06-22
+categories: ["开发"]
+tags: ["plantuml"]
+---
 Status: draft
 
 # 简介

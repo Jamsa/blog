@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手8-消息总线
-Date: 2018-06-11
-Modified: 2018-06-11
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手8-消息总线"
+date: 2018-06-11
+modified: 2018-06-11
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第八篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -13,11 +15,11 @@ Spring Cloud Bus以Spring Cloud Stream为基础，建立应用间的通讯通道
 
 # 将Spring Cloud Bus用于配置中心
 
-在[前一篇]({filename}spring_cloud_tut7.md)文章的最后一节，我们通过发送POST请求至应用的`/refresh`端点，可以让应用重新获取配置。如果我们要同时更新所有节点则需要逐个应用发送请求，这样管理起来并不方便。通过集成`spring-cloud-starter-bus-amqp`可以让我们通过配置中心应用统一管理各个应用配置信息的刷新。
+在[前一篇](../spring_cloud_tut7/)文章的最后一节，我们通过发送POST请求至应用的`/refresh`端点，可以让应用重新获取配置。如果我们要同时更新所有节点则需要逐个应用发送请求，这样管理起来并不方便。通过集成`spring-cloud-starter-bus-amqp`可以让我们通过配置中心应用统一管理各个应用配置信息的刷新。
 
 集成之后的配置刷新机制如下图：
 
-![配置中心-bus]({attach}spring_cloud_tut/bus-config-server.png)
+![配置中心-bus](../spring_cloud_tut/bus-config-server.png)
 
 当访问配置中心的`/bus/refresh`时，它将通过总线发送广播消息。各个客户端接收到消息后，将重新读取配置信息。这样所有配置中心客户端就都能及时获取配置信息的变化。
 
@@ -25,7 +27,7 @@ Spring Cloud Bus以Spring Cloud Stream为基础，建立应用间的通讯通道
 
 Spring Cloud Bus支持RabbitMQ和Kafka两种服务。这里我们选择RabbitMQ。安装完毕后，默认的服务端口是`5672`，默认安装会安装管理控制台，管理控制台运行在`15672`端口。
 
-![RabbitMQ]({attach}spring_cloud_tut/rabbitmq.png)
+![RabbitMQ](../spring_cloud_tut/rabbitmq.png)
 
 ## 集成消息总线
 
@@ -244,7 +246,7 @@ spring:
 
 消息总线除了可以用于配置中心外，还可以处理我们自己的数据。下面我们测试从`provider:service`产生消息，在`consumer:service`中消费这条消息，使用的队列名称为`hello`。
 
-![自定义消息-bus]({attach}spring_cloud_tut/bus-use.png)
+![自定义消息-bus](../spring_cloud_tut/bus-use.png)
 
 ## 在`provider:service`中配置消息生产者
 
@@ -317,14 +319,14 @@ public class Receiver {
 访问`provider:service`的`/provider/send`来发送消息。从控制台可以看到消息发出：
 
 
-![bus-sender]({attach}spring_cloud_tut/bus1.png)
+![bus-sender](../spring_cloud_tut/bus1.png)
 
 从`consumer:service`的控制台，可以看到消费方获取到的消息。
 
-![bus-receiver]({attach}spring_cloud_tut/bus2.png)
+![bus-receiver](../spring_cloud_tut/bus2.png)
 
 从RabbitMQ控制台也能看到`hello`队列的情况。
 
-![rabbitmq-que]({attach}spring_cloud_tut/rabbitmq-que.png)
+![rabbitmq-que](../spring_cloud_tut/rabbitmq-que.png)
 
 

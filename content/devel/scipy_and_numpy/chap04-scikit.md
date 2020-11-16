@@ -1,8 +1,10 @@
-Title: Numpy And Scipy笔记（三）
-Date: 2017-3-28
-Modified: 2017-03-28
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Numpy And Scipy笔记（三）"
+date: 2017-3-28
+modified: 2017-03-28
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 
 ```python
@@ -92,7 +94,7 @@ plt.show()
 
 
 
-![png]({attach}scipy_and_numpy/chap04-scikit_files/chap04-scikit_2_1.png)
+![png](../scipy_and_numpy/chap04-scikit_files/chap04-scikit_2_1.png)
 
 
 ### 局部极大值
@@ -147,7 +149,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap04-scikit_files/chap04-scikit_4_0.png)
+![png](../scipy_and_numpy/chap04-scikit_files/chap04-scikit_4_0.png)
 
 
 ## Scikit-Learn

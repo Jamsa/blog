@@ -1,8 +1,10 @@
-Title: SICP读书笔记
-Date: 2010-08-31
-Modified: 2010-08-31
-Category: 开发
-Tags: lisp,scheme
+---
+title: "SICP读书笔记"
+date: 2010-08-31
+modified: 2010-08-31
+categories: ["开发"]
+tags: ["lisp","scheme"]
+---
 
 # Chap.1 Building Abstractions with Procedures
 
@@ -20,7 +22,7 @@ Tags: lisp,scheme
 
 ## Exercise 1.2 将下面的表达式转换为form
 
-![ch1-z-g-3]({attach}SICP/ch1-z-g-3.gif)
+![ch1-z-g-3](../SICP/ch1-z-g-3.gif)
 
 ```scheme
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 3))))) (* 3 (- 6 2) (- 2 7)))

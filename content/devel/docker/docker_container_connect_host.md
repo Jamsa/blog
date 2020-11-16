@@ -1,8 +1,10 @@
-Title: Docker for Mac从容器访问主机服务
-Date: 2019-01-01
-Modified: 2019-01-01
-Category: 开发
-Tags: docker, mac
+---
+title: "Docker for Mac从容器访问主机服务"
+date: 2019-01-01
+modified: 2019-01-01
+categories: ["开发"]
+tags: ["docker"," mac"]
+---
 
 最近两天，在配置本机一套分布式系统的单点登录功能时，需要用到`Nginx`做同域单点登录，本打算直接用`docker`运行一个`nginx`容器就能解决，没想到在使用时却遇到了问题，`nginx`无法访问主机上运行的服务。
 

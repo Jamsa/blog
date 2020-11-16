@@ -1,8 +1,10 @@
-Title: Android Dev Guide学习笔记 User Interface
-Date: 2010-08-20
-Modified: 2010-08-20
-Category: 移动
-Tags: android
+---
+title: "Android Dev Guide学习笔记 User Interface"
+date: 2010-08-20
+modified: 2010-08-20
+categories: ["移动"]
+tags: ["android"]
+---
 
 # 用户界面
 
@@ -15,7 +17,7 @@ View对象的属性中存储了布局参数和屏幕中特定的矩形框中的�
 # View层级结构
 在Android平台上，你可以用一组包含View和ViewGroup节点的层级结构来定义Activity的UI，如下图。这个层级树根据需要可以很简单也可以很复杂，你可以使用Android中预定义的构件和布局来构建它，也可以用自定义的View来构建。
 
-![ViewGroup]({attach}android-dev-guide/viewgroup.png)
+![ViewGroup](../android-dev-guide/viewgroup.png)
 
 
 为了让view层级树渲染到屏幕上，你的Activity必须调用setContentView()方法并传递一个根节点的引用。Android系统接收到这个引用来废止、度量和绘制这个树。根节点请求它的子节点绘制自己——每个view group节点负责调用它自己的子节点绘制自己。子节点可能会从父节点中请求得到某个位置的一块区块，但是父节点有最终决定分配哪个位置的多大的区域给子节点。Android从树的顶部开始解析布局元素，并实例华它们并将它们添加到它们的父节点。由于这些元素的绘制是按顺序进行的，如果出现元素重叠，则最后绘制的元素将位于先前绘制的元素的上面。

@@ -1,8 +1,10 @@
-Title: Maven2 Tips
-Date: 2009-09-21
-Modified: 2009-09-21
-Category: 开发
-Tags: maven
+---
+title: "Maven2 Tips"
+date: 2009-09-21
+modified: 2009-09-21
+categories: ["开发"]
+tags: ["maven"]
+---
 
 # mvn命令行
 ## 执行Java程序

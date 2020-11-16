@@ -1,8 +1,10 @@
-Title: Emacs Tips
-Date: 2008-07-08
-Modified: 2008-07-08
-Category: 效率
-Tags: emacs
+---
+title: "Emacs Tips"
+date: 2008-07-08
+modified: 2008-07-08
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 # 一 基本概念
 - 1.常见的按键组合：

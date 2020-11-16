@@ -1,8 +1,10 @@
-Title: Emacs Dired Tip
-Date: 2018-05-12
-Modified: 2018-05-12
-Category: 效率
-Tags: emacs
+---
+title: "Emacs Dired Tip"
+date: 2018-05-12
+modified: 2018-05-12
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 
 

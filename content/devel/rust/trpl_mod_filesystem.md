@@ -1,8 +1,10 @@
-Title: Rust Mod和文件系统
-Date: 2018-08-21
-Modified: 2018-08-21
-Category: 开发
-Tags: rust
+---
+title: "Rust Mod和文件系统"
+date: 2018-08-21
+modified: 2018-08-21
+categories: ["开发"]
+tags: ["rust"]
+---
 
 本文是读《Rust程序设计语言第二版》Mod和文件系统相关内容的笔记。阅读这本书所敲的代码放在[Github](https://github.com/Jamsa/trpl/blob/master/src/lib.rs)上。代码没有按书的结构分章节创建工程，而是将所有代码放在一个单独的工程中。
 

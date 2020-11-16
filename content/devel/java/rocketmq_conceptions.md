@@ -1,8 +1,10 @@
-Title: RocketMQ 主要概念
-Date: 2018-05-12
-Modified: 2018-05-12
-Category: 开发
-Tags: mq
+---
+title: "RocketMQ 主要概念"
+date: 2018-05-12
+modified: 2018-05-12
+categories: ["开发"]
+tags: ["mq"]
+---
 
 ## 主要概念
 

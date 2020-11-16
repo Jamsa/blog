@@ -1,8 +1,10 @@
-Title: Build Machine Learning Systems with Python 笔记
-Date: 2015-05-18
-Modified: 2015-05-18
-Category: 机器学习
-Tags: machine learn,python
+---
+title: "Build Machine Learning Systems with Python 笔记"
+date: 2015-05-18
+modified: 2015-05-18
+categories: ["机器学习"]
+tags: ["machine learn","python"]
+---
 
 # Build Machine Learning Systems with Python 笔记
 ## 起步

@@ -1,8 +1,10 @@
-Title: 梯度的理解
-Date: 2018-05-12
-Modified: 2018-05-27
-Category: 机器学习
-Tags: python,machine learn
+---
+title: "梯度的理解"
+date: 2018-05-12
+modified: 2018-05-27
+categories: ["机器学习"]
+tags: ["python","machine learn"]
+---
 
 # 梯度的理解
 

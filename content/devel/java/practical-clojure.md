@@ -1,8 +1,10 @@
-Title: Practical Clojure 记笔
-Date: 2012-03-12
-Modified: 2010-07-30
-Category: 开发
-Tags: clojure
+---
+title: "Practical Clojure 记笔"
+date: 2012-03-12
+modified: 2010-07-30
+categories: ["开发"]
+tags: ["clojure"]
+---
 
 # 状态管理
 Clojure主张消除状态管理。而现实世界仍要需要状态变化。

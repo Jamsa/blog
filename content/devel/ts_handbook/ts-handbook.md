@@ -1,8 +1,10 @@
-Title: TypeScript Handbook笔记
-Date: 2020-02-13
-Modified: 2020-02-13
-Category: 开发
-Tags: typescript
+---
+title: "TypeScript Handbook笔记"
+date: 2020-02-13
+modified: 2020-02-13
+categories: ["开发"]
+tags: ["typescript"]
+---
 
 [toc]
 

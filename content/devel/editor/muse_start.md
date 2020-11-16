@@ -1,8 +1,10 @@
-Title: Emacs Muse标记规则学习
-Date: 2007-06-19
-Modified: 2007-06-19
-Category: 效率
-Tags: emacs
+---
+title: "Emacs Muse标记规则学习"
+date: 2007-06-19
+modified: 2007-06-19
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 ```
 * 段落

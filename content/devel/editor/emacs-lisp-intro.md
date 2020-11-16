@@ -1,8 +1,10 @@
-Title: Programming in Emacs Lisp笔记
-Date: 2008-07-16
-Modified: 2008-07-16
-Category: 效率
-Tags: emacs
+---
+title: "Programming in Emacs Lisp笔记"
+date: 2008-07-16
+modified: 2008-07-16
+categories: ["效率"]
+tags: ["emacs"]
+---
 
 # 序
 

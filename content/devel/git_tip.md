@@ -1,8 +1,10 @@
-Title: Git Tips
-Date: 2018-05-12
-Modified: 2018-05-12
-Category: 开发
-Tags: git
+---
+title: "Git Tips"
+date: 2018-05-12
+modified: 2018-05-12
+categories: ["开发"]
+tags: ["git"]
+---
 
  - 强制本地回退至指定版本
  

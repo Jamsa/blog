@@ -1,8 +1,10 @@
-Title: Numpy And Scipy笔记（二）
-Date: 2017-3-28
-Modified: 2017-03-28
-Category: 机器学习
-Tags: python,machine learn,jupyter notebook
+---
+title: "Numpy And Scipy笔记（二）"
+date: 2017-3-28
+modified: 2017-03-28
+categories: ["机器学习"]
+tags: ["python","machine learn","jupyter notebook"]
+---
 
 
 ```python
@@ -76,7 +78,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_3_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_3_0.png)
 
 
 `popt`保存有最佳拟合参数。通过`pcov`可以检测拟合质量，它的对角元素是每组参数的方差。
@@ -133,7 +135,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_6_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_6_0.png)
 
 
 上面对高斯分布的拟合是在可接受范围之内的。
@@ -176,7 +178,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_8_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_8_0.png)
 
 
 ### 解函数
@@ -228,7 +230,7 @@ plt.show()
 
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_10_1.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_10_1.png)
 
 
 需要注意的是猜测值`[15,20,30,35,40,45]`是非常重要的，如果它们不正确，有可能获取不到希望的结果。
@@ -280,7 +282,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_12_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_12_0.png)
 
 
 二次拟合的情况明显更好一些，因此选择合适的插值参数（类型？）是非常重要的。
@@ -318,7 +320,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_14_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_14_0.png)
 
 
 下例使用多变量插值，处理图像的重建，使用的`scipy.interpolate.griddata`函数，它用于处理多维非结构化数据。比如从 $1000 x 1000$的图像中，随机选择1000个点，重建图像。
@@ -385,7 +387,7 @@ plt.imshow(grid_z2)
 
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_16_1.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_16_1.png)
 
 
 在图像处理中，采样越多，则还原效果越好。另一个插值函数是`scipy.interpolate.SmoothBivariateSpline`，但是它对样本数据也更敏感，griddata的可靠性则更好一些。
@@ -430,7 +432,7 @@ plt.show()
 
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_18_1.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_18_1.png)
 
 
 ### 数值积分
@@ -465,7 +467,7 @@ plt.show()
 
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_20_1.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_20_1.png)
 
 
 ## 数据统计
@@ -529,7 +531,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_24_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_24_0.png)
 
 
 ### 统计函数（分布检测函数）
@@ -671,7 +673,7 @@ plt.show()
 
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_30_1.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_30_1.png)
 
 
 上图中针对的是干净的数据，对于有噪声的数据（部分类型的数据是均匀分布的）的处理是`vq.kmeans`的弱项。
@@ -824,7 +826,7 @@ plt.show()
 ```
 
 
-![png]({attach}scipy_and_numpy/chap03-scipy_files/chap03-scipy_34_0.png)
+![png](../scipy_and_numpy/chap03-scipy_files/chap03-scipy_34_0.png)
 
 
 ### 信号和图像处理

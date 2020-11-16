@@ -1,8 +1,10 @@
-Title: Practical Common Lisp笔记
-Date: 2011-06-03
-Modified: 2011-06-03
-Category: 开发
-Tags: lisp
+---
+title: "Practical Common Lisp笔记"
+date: 2011-06-03
+modified: 2011-06-03
+categories: ["开发"]
+tags: ["lisp"]
+---
 
 # 环境搭建
 尝试了多种common lisp的实现，在windows下使用Lispbox时并不能使用slime。而gnu common lisp和ansi common lisp好像也不能在windows中与emacs 23和slime一起工作。结果发现只有gnu clisp的win32版本可以与win32 slime emacs23配合工作。emacs23的.emacs文件如下：
@@ -262,17 +264,20 @@ PARSE-INTEGER在将字符串解析为integer失败时出错。它有一个可选
 现在可以使用add-cds添加更多的CD到数据库了。
 ```
 CL-USER> (add-cds)
-Title: Rockin' the Suburbs
+---
+title: "Rockin' the Suburbs"
 Artist: Ben Folds
 Rating: 6
 Ripped  [y/n]: y
 Another?  [y/n]: y
-Title: Give Us a Break
+---
+title: "Give Us a Break"
 Artist: Limpopo
 Rating: 10
 Ripped  [y/n]: y
 Another?  [y/n]: y
-Title: Lyle Lovett
+---
+title: "Lyle Lovett"
 Artist: Lyle Lovett
 Rating: 9
 Ripped  [y/n]: y
@@ -2293,17 +2298,17 @@ MAPC和MAPL是装扮为函数的控制结构——它们是只简单的返回它
 ## Trees
 包含list的list。`((1 2) (3 4) (5 6))`的结构。
 
-![list-or-tree]({attach}practical_common_lisp/list-or-tree.png)
+![list-or-tree](../practical_common_lisp/list-or-tree.png)
 
 通过COPY-LIST和COPY-TREE来了解list函数和tree函数的区别。
 
 COPY-LIST只复制构造出list结构的cons cells。而不复制list中的子list。新创建的cons cells仍然指向原来的cons cells指向的list结构。对上面的结构COPY-LIST的结果：
 
-![copy-list-list-or-tree]({attach}practical_common_lisp/copy-list-list-or-tree.png)
+![copy-list-list-or-tree](../practical_common_lisp/copy-list-list-or-tree.png)
 
 COPY-TREE复图中的每个cons cells并将它们连接为同样的结构。COPY-TREE的结果：
 
-![copy-tree-list-or-tree]({attach}practical_common_lisp/copy-tree-list-or-tree.png)
+![copy-tree-list-or-tree](../practical_common_lisp/copy-tree-list-or-tree.png)
 
 
 原cons cells指向一个atomic值时，新建的cons cells将指向相同的值。比如数字5、6和符号NIL。
@@ -2374,7 +2379,7 @@ Alists是将keys映射到values的结构并且支持逆向查找，通过key查�
 
 在alist的内部它的元素也是由cons cells组成。可以把它的每个元素的CAR和CDR当作key/value对。例如`((A . 1) (B . 2) (C . 3))`的结构如下：
 
-![alist-abc-123]({attach}practical_common_lisp/alist-abc-123.png)
+![alist-abc-123](../practical_common_lisp/alist-abc-123.png)
 
 除非CDR部分是一个list，cons cells总是被表示为dotted pairs格式的s表达式来描述键值对。
 
@@ -2434,7 +2439,7 @@ CL-USER> (pairlis '(a b c) '(1 2 3))
 
 另一种look table是plist。结构上来讲plist只是标准的list。将A B和C映射为1 2 3的plist结构如下：
 
-![plist-abc-123]({attach}practical_common_lisp/plist-abc-123.png)
+![plist-abc-123](../practical_common_lisp/plist-abc-123.png)
 
 但是，plist的弹性比alist小些。实际上，plist只支持一个基础的GETF查找操作。GETF函数接收一个plist和key作为参数并返回相应的vaue或者在未找到时返回NIL。
 

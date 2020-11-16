@@ -1,8 +1,10 @@
-Title: OA Framework应用构建之——实现模型
-Date: 2008-07-08
-Modified: 2008-07-08
-Category: 开发
-Tags: oracle,ebs,oaf
+---
+title: "OA Framework应用构建之——实现模型"
+date: 2008-07-08
+modified: 2008-07-08
+categories: ["开发"]
+tags: ["oracle","ebs","oaf"]
+---
 Slug: build_model
 
 # 设计模型对象
@@ -25,7 +27,7 @@ Slug: build_model
 
 OA Framework“洋葱形”的代码层次边界：
 
-![onion]({attach}oaf_build_model/onion.gif)
+![onion](../oaf_build_model/onion.gif)
 
 通常可以在这些边界征用，对象引用下层的数据流，而不会引用上层的。
 
@@ -539,7 +541,7 @@ entity expert被定义为一个单例对象，是业务对象一个特殊的分�
 
 下表描述了创建业务对象和关联到需要扩展的校验时要的相关对象。
 
-![modelobjects]({attach}oaf_build_model/modelobjects.gif)
+![modelobjects](../oaf_build_model/modelobjects.gif)
 
 第一行列举了定义实体时所有可能创建的对象。第一个格子说明了创建一个实体对象时将产生两个文件：元数据定义的XML文件，和实际的Java实现类文件。实体对象处理属性级和记录级的校验。这些校验通常需要使用Validation View Objects (VVO)。校验对象在Validation Application Module(VAM)中分组。与实体对象类似，创建VVO和VAM产生了元数据定义XMl文件，并为每个对象产生了Java实现类文件。最后，实体对象有时会接收辅助类提供的一些服务，为实体对象提供的验证服务。辅助类是Entity Expert通过实体对象的属性连接到实体对象。
 

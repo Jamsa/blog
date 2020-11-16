@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手9-服务监控
-Date: 2018-06-12
-Modified: 2018-06-12
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手9-服务监控"
+date: 2018-06-12
+modified: 2018-06-12
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第九篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -34,7 +36,7 @@ Spring Cloud Sleuth使用的是Google Dapper的术语。
      
      - cr: Client Received客户端接收响应的时间，`cr-cs`就是客户端整个请求调用所消耗的时间
 
-![服务监控-sleuth]({attach}spring_cloud_tut/sleuth1.png)
+![服务监控-sleuth](../spring_cloud_tut/sleuth1.png)
      
 # 集成Zipkin
 
@@ -54,7 +56,7 @@ Spring Cloud Sleuth使用的是Google Dapper的术语。
 
 本文不再缀述Http POST方式进行数据传输，只记录如何使用RabbitMQ与Zipkin进行通讯。
 
-![服务监控-zipkin-mq]({attach}spring_cloud_tut/zipkin-mq.png)
+![服务监控-zipkin-mq](../spring_cloud_tut/zipkin-mq.png)
 
 ## 配置依赖
 
@@ -204,18 +206,18 @@ spring:
 
 ## 测试
 
-为了进行集成测试，我们需要启动`registry`、`gateway`、`provider:service`、`consumer:service`模块外，还需要启动`rabbitmq`。另外，由于此前[配置中心]({filename}spring_cloud_tut7.md)一文中`provider:service`启动时依赖于`config`模块，因此我们还需要启动`config`模块。
+为了进行集成测试，我们需要启动`registry`、`gateway`、`provider:service`、`consumer:service`模块外，还需要启动`rabbitmq`。另外，由于此前[配置中心](../spring_cloud_tut7/)一文中`provider:service`启动时依赖于`config`模块，因此我们还需要启动`config`模块。
 
 启动完毕后，在Rabbit控制台，能看到新创建的`zipkin`队列。
 
-![服务监控-zipkin-rabbit]({attach}spring_cloud_tut/zipkin-rabbit.png)
+![服务监控-zipkin-rabbit](../spring_cloud_tut/zipkin-rabbit.png)
 
 访问`http://localhost:9003`能看到`zipkin`服务程序的控制台。
 
 访问`http://localhost:9000/api/consumer/hello?name=Jamsa111`之后，再查看`zipkin`控制台，就能看到调用链信息和依赖分析信息了。
 
-![服务监控-zipkin1]({attach}spring_cloud_tut/zipkin1.png)
+![服务监控-zipkin1](../spring_cloud_tut/zipkin1.png)
 
-![服务监控-zipkin2]({attach}spring_cloud_tut/zipkin2.png)
+![服务监控-zipkin2](../spring_cloud_tut/zipkin2.png)
 
-![服务监控-zipkin3]({attach}spring_cloud_tut/zipkin3.png)
+![服务监控-zipkin3](../spring_cloud_tut/zipkin3.png)

@@ -1,8 +1,10 @@
-Title: wxPython In Action的读书笔记
-Date: 2008-07-08
-Modified: 2008-07-08
-Category: 开发
-Tags: python,wxpython
+---
+title: "wxPython In Action的读书笔记"
+date: 2008-07-08
+modified: 2008-07-08
+categories: ["开发"]
+tags: ["python","wxpython"]
+---
 
 # Chap 1 Welcome to wxPython
 一个20行的wxPython程序：
@@ -264,7 +266,7 @@ application对象管理主事件循环，它是整个wxPython程序的心跳。a
 
 这两个对象的关系如图：
 
-![figure_2_1.png]({attach}wxPython/figure_2_1.png)
+![figure_2_1.png](../wxPython/figure_2_1.png)
 
 这个图显示，application对象“拥有”顶层窗口和主事件循环，顶层窗口管理窗口中的组件和赋给它的数据。窗口和其中的组件在用户动作时触发事件，并在接收到事件通知时改变显示的内容。
 
@@ -332,7 +334,7 @@ wxPython的生命周期开始于application实例创建，结束于最后一个�
 
 如图所示，创建application对象触发OnInit()方法并允许创建新的窗口。OnInit()执行后，将执行MainLoop()，表示wxPython事件被处理。应用继续执行，事件处理直到窗口被关闭才结束。所有顶层窗口被关闭后，MainLoop()函数返回后application对象被销毁。接下来，脚本可以关闭任何连接或存在的线程。
 
-![figure_2_2.png]({attach}wxPython/figure_2_2.png)
+![figure_2_2.png](../wxPython/figure_2_2.png)
 
 ## 2.3 如何重定向 wxPython 程序的输出？
 所有Python程序可以通过两个标准流输出文本：标准输出流sys.stdout和标准错误流sys.stderr。但是，在创建application对象时你可以控制wxPython将这些标准流重定向到一个窗口中。这个重定向行为在Windows下是默认行为。在Unix系统中，它更像是一个实际的终端窗口，wxPython缺省不控制标准流。在所有系统中，重定向行为可以在创建application对象时显式的指定。推荐使用这个功能的优点，总是指定重定向以避免在不同平台间产生不同的行为。
@@ -758,7 +760,7 @@ wx.EvtHandler | 一个wxPython类，它的实例能创建针对特定类型事�
 
 从用户的角度看，一个wxPython程序花大量时间什么也不做。通常，它处理空闲状态直到用户或系统做了什么触发wxPython程序进入动作。wxPython程序结构是一个事件驱动程序架构的例子。
 
-![figure_3_1.png]({attach}wxPython/figure_3_1.png)
+![figure_3_1.png](../wxPython/figure_3_1.png)
 
 表3.1显示了事件驱动程程序的主要部分。
 
@@ -933,7 +935,7 @@ ProcessEvent(event) | 将事件对象放到事件处理系统立即进行处理�
 ## 3.4 wxPython是如何处理事件的？
 基于事件的系统的一个关键组件是当事件进入系统分派到哪个代码片段来响应。这节我们将讨论当事件进入时wxPython处理的过程。图表3.2显示了一个带有按钮的简单窗口，它用于产生简单的事件。
 
-![figure_3_2.png]({attach}wxPython/figure_3_2.png)
+![figure_3_2.png](../wxPython/figure_3_2.png)
 
 程序3.3包含了产生这个窗口的代码。这个代码中，wxPython事件在点击按钮和鼠标移过按钮时产生。
 
@@ -987,7 +989,7 @@ wxPython事件处理过程被设计为易于程序员在最常见的地方创建
 
 图表3.3 事件处理过程，开始于事件被触发，过程中各步骤来查找处理器。
 
-![figure_3_3.png]({attach}wxPython/figure_3_3.png)
+![figure_3_3.png](../wxPython/figure_3_3.png)
 
 事件处理开始于触发事件的对象。通常，wxPython首先查看触发事件的对象中是否有相应的事件类型的事件处理函数。如果找到了，就执行。如果没有，wxPython向容器层次结构上层查找。上层的父构件被搜索，直到wxPython找到一个处理函数或达到顶级对象。如果还同有找到，wxPython将在结束前检查应用程序对象中是否有处理方法。当事件处理器运行时，这个处理过程正常结束。但是，这个函数将告诉wxPython继续查找事件处理器。
 
@@ -998,7 +1000,7 @@ wxPython事件处理过程被设计为易于程序员在最常见的地方创建
 
 图表 3.4 创建事件将焦点转到触发的对象
 
-![figure_3_4.png]({attach}wxPython/figure_3_4.png)
+![figure_3_4.png](../wxPython/figure_3_4.png)
 
 多数预先存在的事件类型在响应特殊的用户动作或系统通知时被创建。比如，鼠标进入事件在在wxPython注意到鼠标进入一个新构件对象的边界时触发，按钮点击事件在鼠标左键在同一个按钮上按下和弹起时被创建。
 
@@ -1015,13 +1017,13 @@ wxPython事件处理过程被设计为易于程序员在最常见的地方创建
 
 图表 3.5 检查触发的对象是否为enabled
 
-![figure_3_5.png]({attach}wxPython/figure_3_5.png)
+![figure_3_5.png](../wxPython/figure_3_5.png)
 
 #### 第三步 定位绑定器对象
 
 图表 3.6 检查触发事件的对象是否有合适的绑定器
 
-![figure_3_6.png]({attach}wxPython/figure_3_6.png)
+![figure_3_6.png](../wxPython/figure_3_6.png)
 
 ProcessEvent()方法查找能识别事件类型和当前对象间的绑定器对象。
 
@@ -1041,7 +1043,7 @@ ProcessEvent()方法查找能识别事件类型和当前对象间的绑定器对
 
 图表 3.8 事件处理过程继续查找容器层级结构。如果事件是一个命令事件，或它被申明为传播
 
-![figure_3_8.png]({attach}wxPython/figure_3_8.png)
+![figure_3_8.png](../wxPython/figure_3_8.png)
 
 代码 3.3中，在按钮上点击鼠标产生一个wx.EVT_BUTTON类型的命令事件。由于wx.EVT_BUTTON是wx.CommandEvent类型的，wxPython在按钮对象上查找绑定失败时，它查找父容器对象——面板对象，然后是frame。由于frame上有一个匹配的绑定，ProcessEvent()调用适当的方法，在这里是OnButtonClick()方法。
 
@@ -1259,7 +1261,7 @@ Python与其它语言的相比比较引人注意的功能是它可以有两种�
 ### 5.1.1一个重构的例子
 我们通过一个重构的例子来展示如何在实际中使用这些原则。图5.1展示了一个可能是被作为Microsoft Access数据库前端的窗口。
 
-![figure_5_1.png]({attach}wxPython/figure_5_1.png)
+![figure_5_1.png](../wxPython/figure_5_1.png)
 
 布局比前面看到的复杂一点，但对于真实世界的应用来说，它仍然非常简单。代码5.1展示了生成图5.1所示程序的恶劣的代码。这就是那种大家所说的混乱的UI代码。将多个问题压缩到少量的代码行中可能有些夸张，但这将是你在布局代码中遇到的典型问题。
 

@@ -1,8 +1,10 @@
-Title: Android Dev Guide学习笔记 What is Android?
-Date: 2010-07-30
-Modified: 2010-07-30
-Category: 移动
-Tags: android
+---
+title: "Android Dev Guide学习笔记 What is Android?"
+date: 2010-07-30
+modified: 2010-07-30
+categories: ["移动"]
+tags: ["android"]
+---
 
 # Android是什么？
 
@@ -20,7 +22,7 @@ Tags: android
 
 # Android架构
 下图展示了Android操作系统的主要组件。
-![system architecture]({attach}android-dev-guide/system-architecture.jpg)
+![system architecture](../android-dev-guide/system-architecture.jpg)
 
 # 应用程序
 Android发布时一般带有一套核心应用程序，包括email客户端，SMS程序，日历，地图，浏览器，联系人和其它。所有应用都是用Java编写的。

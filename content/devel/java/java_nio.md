@@ -1,8 +1,10 @@
-Title: Java NIO笔记
-Date: 2011-07-06
-Modified: 2011-07-06
-Category: 开发
-Tags: java
+---
+title: "Java NIO笔记"
+date: 2011-07-06
+modified: 2011-07-06
+categories: ["开发"]
+tags: ["java"]
+---
 
 
 # 简介

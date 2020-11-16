@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手4-服务消费者
-Date: 2018-06-03
-Modified: 2018-06-06
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手4-服务消费者"
+date: 2018-06-03
+modified: 2018-06-06
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第四篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -14,7 +16,7 @@ Tags: spring cloud
  
  - java.lang.NoClassDefFoundError: feign/Feign$Builder
  
-和其它很多错误。现在已经将[第一篇]({filename}spring_cloud_tut1.md)中的构建依赖处理好。
+和其它很多错误。现在已经将[第一篇](../spring_cloud_tut1/)中的构建依赖处理好。
 
 # 配置模块依赖
 

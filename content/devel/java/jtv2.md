@@ -1,8 +1,10 @@
-Title: JTV开发笔记2-网络通讯
-Date: 2018-07-17
-Modified: 2018-07-18
-Category: 开发
-Tags: scala, netty, jtv
+---
+title: "JTV开发笔记2-网络通讯"
+date: 2018-07-17
+modified: 2018-07-18
+categories: ["开发"]
+tags: ["scala"," netty"," jtv"]
+---
 
 本文是[Jtv](https://github.com/Jamsa/jtv)的开发笔记。Jtv是一个远程桌面工具。
 
@@ -89,7 +91,7 @@ object JtvMessage{
 
 这此类的关系如下：
 
-![消息类结构]({attach}jtv/message_uml.png)
+![消息类结构](../jtv/message_uml.png)
 
 我将消息分为三类：
 
@@ -317,4 +319,4 @@ bootstrap.group(bossGroup,workerGroup)
 
 编码/解码器的工作时序如下：
 
-![编码解码器处理时序]({attach}jtv/codec_seq.png)
+![编码解码器处理时序](../jtv/codec_seq.png)

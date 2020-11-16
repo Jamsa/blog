@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手1-准备
-Date: 2018-05-30
-Modified: 2018-06-03
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手1-准备"
+date: 2018-05-30
+modified: 2018-06-03
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 # 目标
 

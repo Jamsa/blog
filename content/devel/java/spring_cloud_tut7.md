@@ -1,8 +1,10 @@
-Title: Spring Cloud 上手7-配置中心
-Date: 2018-06-07
-Modified: 2018-06-10
-Category: 开发
-Tags: spring cloud
+---
+title: "Spring Cloud 上手7-配置中心"
+date: 2018-06-07
+modified: 2018-06-10
+categories: ["开发"]
+tags: ["spring cloud"]
+---
 
 这是Spring Cloud上手系列的第七篇，代码放在[GitHub](https://github.com/Jamsa/sc-cloud)上，随着本系列文章更新。
 
@@ -146,13 +148,13 @@ env.username=uname for test
 
 启动完毕后，在Eureka注册中心中可以查看到这个新的服务。
 
-![配置中心]({attach}spring_cloud_tut/config1.png)
+![配置中心](../spring_cloud_tut/config1.png)
 
 也可以通过`http://localhost:9002/config-for-client-dev.yml`和`http://localhost:9002/config-for-client-test.properties`访问上节中的配置文件。
 
-![配置中心-配置信息dev]({attach}spring_cloud_tut/config2.png)
+![配置中心-配置信息dev](../spring_cloud_tut/config2.png)
 
-![配置中心-配置信息test]({attach}spring_cloud_tut/config3.png)
+![配置中心-配置信息test](../spring_cloud_tut/config3.png)
 
 有几种方式可以访问到这些配置文件：
 
@@ -297,7 +299,7 @@ java -jar provider/service/build/libs/sc-provider-service-0.0.1.jar
 
 在启动`provider:service`的过程中，显示完`Spring` Logo后的下一行，就可以看到从配置中心加载的配置信息，如果这里显示的是默认地址`localhost:8888`，则需要再仔细检查`bootstrap.yml`中的配置信息了。
 
-![配置中心-客户端启动]({attach}spring_cloud_tut/config4.png)
+![配置中心-客户端启动](../spring_cloud_tut/config4.png)
 
 启动完毕后，从`http://localhost:9002/sc-provider-dev.yml`检查配置信息是否能正常读取。再从`http://localhost:9010/provider/config`看是否能显示出配置`sc-provider-dev.yml`中配置的值。如果显示的值是`defaultName not found`，那么读取也是失败的，这个值是在从配置中心读取失败后，读取的默认值。
 
@@ -309,7 +311,7 @@ java -jar provider/service/build/libs/sc-provider-service-0.0.1.jar
 
 添加这项配置后，我们将配置中心应用停掉，并重启`provider:service`应用，可以看到以下报错信息：
 
-![配置中心-客户端failFast]({attach}spring_cloud_tut/config5.png)
+![配置中心-客户端failFast](../spring_cloud_tut/config5.png)
 
 
 ## 重试读取
@@ -335,7 +337,7 @@ dependencies {
 }
 ```
 
-![配置中心-客户端retry]({attach}spring_cloud_tut/config6.png)
+![配置中心-客户端retry](../spring_cloud_tut/config6.png)
 
 # 配置刷新
 
